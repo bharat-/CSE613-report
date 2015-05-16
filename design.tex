@@ -122,8 +122,38 @@ verified that all vertices are explored.
     \end{tabular}
 \end{center}
 
+\paragraph{Algorithms used in Benchmarking}
+After our detailed literature research we shortlisted 6 BFS
+implementations.  Idea was to accomodate some latest work along with some
+highly efficient BFS algorithms and see if they are energy efficient.
+\begin{itemize}[leftmargin=*]
+\item \textbf{Algorithm1}
+\emph{Avoiding locks and atomic instructions in shared-memory parallel
+BFS using optimistic parallelization} [8]. WSLDQ (work stealing, lock free, scale free)
+\item \textbf{Algorithm2}
+\emph{Efficient Parallel Graph Exploration on Multi-Core CPU and GPU}
+[9].
+\item \textbf{Algorithm3}
+\emph{A Work-Efficient Parallel Breadth-First Search Algorithm} [10].
+\item \textbf{Algorithm4}
+\emph{Direction-Optimizing Breadth-First Search} [11]. Shared memory
+c++ implemented, integrated into ligra tool.
+\item \textbf{Algorithm5}
+Theoretically Optimized BFS, version 1 by (Jesmin J. Tithi, SBU).
+\item \textbf{Algorithm6}
+Theoretically Optimized BFS, version 2 by (Jesmin J. Tithi, SBU).
+
+\end{itemize}
+
+
+
 
 \paragraph{Experiment readings}
+We have explored different MEM and CPU parameters which can possibly
+affect energy efficienty.  We have run the experiments with different
+combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
+\emph{numactl} memory and cpu interleaving [12].
+
 To remove anamolies from experiment readings, we ran the experiment 7
 times, remove best and worst readings then reported the mean.
 

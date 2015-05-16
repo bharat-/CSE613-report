@@ -38,7 +38,40 @@ Its a well known research topic, a variety of parallel BFS algorithms have
 since been explored trying to improve complexity, parallelism, distributed,
 cache and io performance. Some of these parallel algorithms are \emph{work
 efficient}, meaning that the total number of operations performed is the same
-to within a constant factor as that of a comparable serial algorithm. 
+to within a constant factor as that of a comparable serial algorithm.
+
+\paragraph{Literature Research}
+A recent paper proposed Hybrid++ BFS algorithm for an accelerated processing
+unit (APU), a heterogeneous processor which fuses the CPU and GPU cores on a
+single die. Hybrid++ leverages the strength of CPUs and GPUs for serial and
+data-parallel execution, respectively, to carefully partition BFS by selecting
+the appropriate execution-core and graph-traversal direction for every search
+iteration [1].
+
+Current cluster implementations suffer from high latency data communication
+with large volumes of transfers across nodes, leading to inefficiency in
+performance and energy consumption. \emph{Large Scale Energy-Efficient Graph
+Traversal: A Path to Efficient Data-Intensive Supercomputing} [4] tried to
+overcome these constraints using a combination of efficient low-overhead data
+compression techniques to reduce transfer volumes along with latency-hiding
+techniques.
+
+\emph{NUMA-optimized Parallel Breadth-first Search on Multi-core Single-node
+System} [5] proposed a non-uniform memory access (NUMA)-optimized BFS, that
+reduced memory accesses to remote RAM on a NUMA architecture system.
+\emph{Fast and Energy-efficient Breadth-First Search on a Single NUMA System}
+[6] further investigated the computational complexity of the bottom-up, a major
+bottleneck in NUMA-optimized BFS.
+
+\emph{Performance evaluation of breadth-first search on Intel Xeon Phi} [7],
+evaluates BFS performance evaluation on a recently released high-performance
+Intel Xeon Phi coprocessor. They examine the previously proposed Queue-based
+and Read-based approaches to BFS implementation. They also apply several
+optimization techniques, such as manual loop unrolling and prefetching, that
+significantly improve performance on Intel Xeon Phi. On a representative graph
+set, Intel Xeon Phi 7120P demonstrates 78\% maximum and 37\% average speedup as
+compared to the Intel Xeon E5-2660 processor.
+
 
 Very few have worked to optimize energy/power efficiency of BFS algorithm.
 Considering the recent trends in application of graph algorithms in big data
