@@ -1,41 +1,40 @@
 \section{Introduction}
 \label{intro}
 
-Breadth-first search, also known as BFS, finds shortest paths from a given
-source vertex to all other vertices, in terms of the number of edges in the
-paths. It starts at the source node and explores the neighbour nodes first
-before moving to the next level neighbours. As it is simple and is efficient in
-detecting shortest path between two nodes, it is being used in basically
-anything that optimizes for minimum distance in some way. It is an important
-kernel used by many graph-processing applications which includes GPS based
-navigation systems, Social network analysis, Graph search etc.
+Breadth-first search is being used
+in basically anything that optimizes for minimum distance in some way.
+It is an important kernel used by many graph-processing applications including
+GPS based navigation systems, Social network analysis tools etc.\newline
+%islso known as BFS, finds shortest paths from a given
+%source node to all other nodes, in terms of the number of edges in the
+%path. It starts at the source node and explores the neighbour nodes first
+%before moving to the next level neighbours. The traversal technique it is being
+%used in basically anything that optimizes for minimum distance in some way.
+%It is an important kernel used by many graph-processing applications including 
+%GPS based navigation systems, Social network analysis tools etc.\newline
 In recent years hardware and storage have become cheaper. So to scale up we deploy
-multi-cores and heterogeneous computing units on a large scale. This increases
-power consumption and hence the maintenance costs. Given the vast size of graph
-data sets, their traversal takes significant time and energy. This motivated us
-to explore energy efficiency of BFS traversal techniques.  Energy efficiency of
-BFS/graph traversal algorithms can be improved by using certain programming
-techniques. Some of the key factors impacting performance are locality, cache
-efficiency, energy and power.
-
+multi-cores and heterogeneous computing units on a large scale. This though speeds
+up the execution, leads to an increase in power consumption and hence the
+maintenance costs. Hence, now a days energy efficiency of an algorithm is becoming a
+matter of primary concern.\newline
+Due to BFS traversal being so commonly used and given the vast size of graph
+data sets, it alone accounts for significant time and energy consumption these days.
+This motivated us to explore energy efficiency of existing BFS traversal
+techniques, analyse results and come out with programming techniques which makes
+it more energy efficient.\newline
+%Some of the key factors impacting performance are locality, cache efficiency, energy and power.
 %Graph algorithms are becoming increasingly important, with applications covering a wide range of scales. Computers run graph algorithms that reason about vast amounts of data, with applications including analytics and recommendation systems. On mobile clients, graph algorithms are important components of recognition and machine learning applications.
-
 %Typical length: 1-1.5 pages.
-
 %Intro text with a citation~\cite{cryptfs}.
-
 %one-page summary of entire paper: - same 4 steps as abstract, but 1
 %pgf each, instead of 1 sentence.  - intro very important: most
 %reviewers make up their mind early on.
-%
 %When to write intro: - last: to ensure it properly summarizes entire
 %paper.  - first: useful as an outline for rest of work
-%
 %Often best to write an outline of whole paper/ideas.
-
 The rest of this document is organized as follows.  Section 2
-describes the background and literature research on BFS.  Section
-3 describes our benchmarking setup.  Section 4 describes evaluation plan
+describes background on parallel BFS.
+Section 3 describes our benchmarking setup.  Section 4 describes evaluation plan
 and results.  Section 5 describes analysis.  Section 6 describes
 conclusion and future work.
 
