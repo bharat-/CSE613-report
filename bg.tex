@@ -29,31 +29,24 @@
 %If your bg material is too short, can fold it into opening of
 %'design' section.
 
-eCryptfs protects data confidentiality even when an unauthorized agent
-gains access to the host machine.  A secret paraphrase is used to
-control access to the file contents.  Properties like file name, size
-and other associated meta-data are left unencrypted.  Crypto
-information for each file is stored as crypt header following the
-%rfc2240~\cite{rfc2240} format  along with eCryptfs marker in the file
-itself, so files are portable in the event of a system or disk
-failure.  Even host and persistent storage is not trusted here.
+BFS is an algorithm for traversing or searching tree or graph data structures.
+It starts at some arbitrary node of a graph, sometimes referred to as source
+vertex and explores the neighbor nodes first, before moving to the next level
+neighbors.
 
-\paragraph{Current Limitations}
-\begin{itemize}
-\item Any user can decrypt the file, if a valid key is produced.  Once
-	the file is decrypted, anyone on that host can read or write
-	based on Unix permissions.  Such behavior is not suitable for
-	a multi-user or file sharing environment.
-\item Anyone with file permissions can delete the file.  Even if the
-	file is encrypted any user with Unix permissions can modify
-	the file, it may corrupt the crypto headers, hence the file
-	cannot be decrypted.
-\item Access revocation does not work without unmounting the eCryptfs
-	file system, making it a disruptive operation.
-\item There is no support for key expiry in eCryptfs.  eCryptfs can
-	leverage the key expiration feature of Linux
-%	kernel~\cite{keyexpire}.
-\end{itemize}
+Its a well known research topic, a variety of parallel BFS algorithms have
+since been explored trying to improve complexity, parallelism, distributed,
+cache and io performance. Some of these parallel algorithms are \emph{work
+efficient}, meaning that the total number of operations performed is the same
+to within a constant factor as that of a comparable serial algorithm. 
+
+Very few have worked to optimize energy/power efficiency of BFS algorithm.
+Considering the recent trends in application of graph algorithms in big data
+and information analysis, energy efficiency is a major concern.
+
+In this project we have analysed some of the existing parallel BFS algorithms
+in terms of energy efficiency.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% For Emacs:

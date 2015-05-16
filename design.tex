@@ -61,15 +61,72 @@
 %
 %-----------------------------------------------------------------------------
 
-\paragraph{Threat Model}
-Multi user systems are prevalent in an enterprise environment.  If
-eCryptfs is deployed, it can stop outsider attack, but it is still
-prone to insider attack.  For e.g., a user $u_1$ has illegally gained
-access to trusted system and can now access a mounted eCryptfs
-directory, which was intended to be used by other user.  Similarly
-root user can access data belonging to others.  In an ideal case no
-user other than the file owner should be allowed access to the
-encrypted data.
+\paragraph{Experiment Setup}
+We have used an Intel machine with SandyBridge EP processor running
+Ubuntu 14.04.2 LTS with Linux kernel 3.13.0-49-generic.  CPU and
+memory details are as follows.
+\begin{center} %\caption {CPU and Memory details}\\
+    \begin{tabular}{| l | l |}
+    \hline
+    Architecture & Intel x86\_64\\ \hline
+    CPU(s) & 32\\ \hline
+    Thread(s) per core & 2\\ \hline
+	Core(s) per socket & 8\\ \hline
+	Socket(s) & 2\\ \hline
+	NUMA node(s) & 2\\ \hline
+	Stepping & 7\\ \hline
+	CPU MHz & 1200.00\\ \hline
+	L1d cache & 32K\\ \hline
+	L1i cache & 32K\\ \hline
+	L2 cache & 256K\\ \hline
+	L3 cache & 20480K\\ \hline
+	NUMA node0 CPU(s) & 0-7,16-23\\ \hline
+	NUMA node1 CPU(s) & 8-15,24-31\\ \hline
+	MemTotal & 32893524 kB\\ \hline
+    \hline
+    \end{tabular}
+\end{center}
+
+\paragraph{Graph Datasets}
+Graph datasets used in the experiment were collected from Florida
+Sparse Matrix database in Matrix Market format.  To ensure a
+consistent benchmarking environment, all datasets were verified for
+directed graph having a single strongly connected component.  We also
+have tried to include some data sets used in the papers describing
+these algorithms. Our datasets vary in size and type to exhaustively
+cover a wide range of realworld input.
+
+\paragraph{Dataset preprocessing}
+We wrote converters for each of the algorithms and converted datasets
+form Matrix Market format to the accepted format for the algorithms.
+To verify the correctness we wrote checksums for each algorithm and
+verified that all vertices are explored.
+\begin{center} %\caption {Dataset details}\\
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+	Dataset & Type & Nodes & Edges\\ \hline
+    gre\_1107-in.txt & Small & 1107 & 4557\\ \hline
+	cell1-in.txt & Small & 7055 & 27800\\ \hline
+	appu-in.txt & Small & 14000 & 1839104\\ \hline
+
+	conf6\_0-8x8-80-in.txt & Medium & 49152 & 1916928\\ \hline
+	com-dblp-out.txt  & Medium & 317080 & 2099732\\ \hline
+	com-amazon-out.txt & Medium & 334863 & 1851744\\ \hline
+	fem\_hifreq\_circuit-in.txt & Medium & 491100 & 19748137\\ \hline
+	Chevron4-in.txt & Medium & 711450 & 5664962\\ \hline
+
+	cage14-in.txt & Large & 1505785 & 25624564\\ \hline
+	cage15-in.txt & Large & 5154859 & 94044692\\ \hline
+	delaunay-n24-out.txt & Large & 16777216 & 100663202\\ \hline
+    \hline
+    \end{tabular}
+\end{center}
+
+
+\paragraph{Experiment readings}
+To remove anamolies from experiment readings, we ran the experiment 7
+times, remove best and worst readings then reported the mean.
+
 
 %File Access Policy: Explain?
 
