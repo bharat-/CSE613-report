@@ -64,7 +64,9 @@
 \paragraph{Experimental Setup}
 We have used an Intel machine with SandyBridge EP processor running
 Ubuntu 14.04.2 LTS with Linux kernel 3.13.0-49-generic.  CPU and
-memory details are as follows.
+memory details are as follows:
+
+\begin{table}[th]
 \begin{center} %\caption {CPU and Memory details}\\
     \begin{tabular}{| l | l |}
     \hline
@@ -86,6 +88,9 @@ memory details are as follows.
     \hline
     \end{tabular}
 \end{center}
+\caption{\capfont CPU and Memory details}
+\label{tab:Table1}
+\end{table}
 
 \paragraph{Dataset}
 Dataset used in the experiment were collected from Florida
@@ -95,41 +100,48 @@ directed graph having a single strongly connected component.  We also
 have tried to include some data sets used in the papers being benchmarked
 Our datasets vary in size and type to exhaustively cover a wide
 range of real world input.
+
+\begin{table}[th]
 \begin{center} %\caption {Dataset details}\\
     \begin{tabular}{| l | l | l | l |}
     \hline
-	Dataset & Type & n & m\\ \hline
+	Dataset & Type & N & M\\ \hline
     	gre\_1107 & Small & 1107 & 4557\\ \hline
-	cell1 & Small & 7055 & 27800\\ \hline
-	appu & Small & 14000 & 1.839M\\ \hline
+	Cell1 & Small & 7055 & 27800\\ \hline
+	Appu & Small & 14000 & 1.839M\\ \hline
 
-	conf6\_0-8x8-80 & Medium & 49152 & 1.917M\\ \hline
-	com-dblp  & Medium & 317080 & 2.1M\\ \hline
-	com-amazon & Medium & 334863 & 1.851M\\ \hline
-	fem\_hifreq\_circuit & Medium & 491100 & 19.748M\\ \hline
+	Conf6\_0-8x8-80 & Medium & 49152 & 1.917M\\ \hline
+	Com-dblp  & Medium & 317080 & 2.1M\\ \hline
+	Com-amazon & Medium & 334863 & 1.851M\\ \hline
+	Fem\_hifreq\_circuit & Medium & 491100 & 19.748M\\ \hline
 	Chevron4 & Medium & 711450 & 5664962\\ \hline
 
-	cage14 & Large & 1.506M & 25.625M\\ \hline
-	cage15 & Large & 5.155M & 94.044M\\ \hline
-	delaunay-n24 & Large & 16.777M & 100.663M\\ \hline
+	Cage14 & Large & 1.506M & 25.625M\\ \hline
+	Cage15 & Large & 5.155M & 94.044M\\ \hline
+	Delaunay-n24 & Large & 16.777M & 100.663M\\ \hline
     \hline
     \end{tabular}
 \end{center}
+\caption{\capfont Graph Dataset details}
+\label{tab:Table2}
+\end{table}
 
 \paragraph{Preprocessing}
 We wrote converters for each of the algorithms and converted datasets
 form Matrix Market format to the accepted format for the algorithms.
-To verify the correctness we wrote checksums for each algorithm and
-verified that all vertices are explored.
+To ensure the correctness of each algorithm we verified that all
+vertices are being explored.
 
 \paragraph{Algorithms used in Benchmarking}
-After our detailed literature research we shortlisted 6 BFS
+After our detailed literature survey we shortlisted \emph{six} BFS
 implementations.  Idea was to accomodate some latest work along with some
 highly efficient BFS algorithms and see if they are energy efficient.
 \begin{itemize}[leftmargin=*]
 \item \textbf{Algorithm1}
 \emph{Avoiding locks and atomic instructions in shared-memory parallel
-BFS using optimistic parallelization} [8]. WSLDQ (work stealing, lock free, scale free)
+BFS using optimistic parallelization} [8]. We used WSLDQ (work
+stealing, lock free, scale free) implementation suggested in the
+paper.
 \item \textbf{Algorithm2}
 \emph{Efficient Parallel Graph Exploration on Multi-Core CPU and GPU}
 [9].
@@ -137,7 +149,7 @@ BFS using optimistic parallelization} [8]. WSLDQ (work stealing, lock free, scal
 \emph{A Work-Efficient Parallel Breadth-First Search Algorithm} [10].
 \item \textbf{Algorithm4}
 \emph{Direction-Optimizing Breadth-First Search} [11]. Shared memory
-c++ implemented, integrated into ligra tool.
+C++ implemented, integrated into ligra tool.
 \item \textbf{Algorithm5}
 Theoretically Optimized BFS, version 1 by (Jesmin J. Tithi, SBU).
 \item \textbf{Algorithm6}
@@ -146,9 +158,7 @@ Theoretically Optimized BFS, version 2 by (Jesmin J. Tithi, SBU).
 \end{itemize}
 
 
-
-
-\paragraph{Experiment readings}
+\paragraph{Experimental readings}
 We have explored different MEM and CPU parameters which can possibly
 affect energy efficienty.  We have run the experiments with different
 combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
