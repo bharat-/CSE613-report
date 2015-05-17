@@ -142,7 +142,7 @@
 \begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
   \cline{2-13}
 &
-\multicolumn{6}{c}{\textbf{ENERGY}} &
+\multicolumn{6}{c}{\textbf{ENERGY}}&
   \multicolumn{6}{|c}{\textbf{POWER}} \\
   \cline{2-13}
   \multicolumn{1}{c|}{} &
@@ -184,12 +184,63 @@
 \end{tabular}
 
 %\end{tabularx}
-\caption{\capfont Results of different file system operations for
-different users, with and without the changes.}
-\label{tab:results}
+\caption{\capfont ENERGY and POWER readings }
+\label{tab:table1}
 \end{table*}
 
 
+\begin{table*}[th]
+\small
+\centering
+%\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
+
+\begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
+  \cline{2-13}
+&
+\multicolumn{6}{c}{\textbf{L2CACHE}} &
+  \multicolumn{6}{|c}{\textbf{L3CACHE}} \\
+  \cline{2-13}
+  \multicolumn{1}{c|}{} &
+  Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{gre}}
+& 4.55 & 4.03 & 4.81 & 3.45 & 3.57 & 3.85 & 4.66 & 5.07 & 4.06 & 7.46 & 5.12 & 4.96 \\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{cell1}}
+& 4.69 & 3.73 & 3.66 & 4.98 & 4.78 & 4.17 & 6.12 & 4.67 & 4.02 & 13.97 & 7.66 & 7.67\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{appu}}
+& 3.54 & 5.10 & 3.84 & 3.49 & 4.31 & 4.54 & 4.51 & 4.61 & 7.73 & 10.13 & 5.38 & 5.29\\ \hline
+  \hline
+\multicolumn{1}{|c|}{\textbf{conf6}}
+& 4.99 & 4.14 & 4.67 & 3.81 & 5.07 & 4.49 & 5.16 & 5.77 & 8.58 & 10.94 & 5.57 & 5.47\\ \hline
+  \multicolumn{1}{|c|}{\textbf{dblp}}
+& 4.68 & 4.25 & 5.11 & 3.92 & 5.03 & 4.65 & 4.77 & 9.65 & 9.34 & 11.30 & 7.18 & 7.18\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{amazon}}
+& 4.70 & 4.39 & 5.07 & 3.35 & 4.98 & 4.54 & 5.40 & 10.80 & 13.02 & 9.34 & 8.38 & 8.65\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{fem}}
+& 4.83 & 4.15 & 4.62 & 3.97 & 4.92 & 4.67 & 5.21 & 9.07 & 9.49 & 10.11 & 5.15 & 6.84\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{Chevron4}}
+& 4.85 & 4.10 & 4.70 & 4.09 & 5.04 & 4.50 & 8.62 & 4.21 & 10.85 & 13.68 & 11.46 & 12.02\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{cage14}}
+& 4.76 & 4.03 & 4.97 & 4.03 & 4.92 & 4.59 & 4.86 & 9.15 & 10.46 & 9.58 & 5.18 & 5.77\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{cage15}}
+& 4.61 & 4.09 & 4.83 & 3.84 & 4.56 & 4.75 & 5.28 & 10.12 & 7.94 & 9.65 & 5.31 & 5.46\\ \hline
+  \hline
+  \multicolumn{1}{|c|}{\textbf{delaunay}}
+& 4.36 & 4.08 & 4.69 & 4.06 & 4.34 & 4.61 & 5.84 & 16.00 & 7.63 & 6.54 & 7.63 & 8.18\\ \hline
+  \hline
+\end{tabular}
+
+%\end{tabularx}
+\caption{\capfont L2CACHE and L3CACHE readings }
+\label{tab:table2}
+\end{table*}
 
 
 
