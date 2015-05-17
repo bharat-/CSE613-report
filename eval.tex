@@ -61,8 +61,8 @@
 %7.  Optional: if eval section longer than usual, end it with a
 %one-paragraph summary of eval results.
 
-
-\begin{center} %\caption {ENERGY readings}\\
+\begin{table}[th]
+\begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
@@ -80,8 +80,14 @@
     \hline
     \end{tabular}
 \end{center}
+\caption{\capfont ENERGY readings}
+\label{tab:Table1}
+\end{table}
 
-\begin{center} %\caption {POWER readings}\\
+
+
+\begin{table}[th]
+\begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
@@ -99,9 +105,13 @@
     \hline
     \end{tabular}
 \end{center}
+\caption{\capfont POWER readings}
+\label{tab:Table2}
+\end{table}
 
 
-\begin{center} %\caption {MEM readings}\\
+\begin{table}[th]
+\begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
@@ -119,47 +129,88 @@
     \hline
     \end{tabular}
 \end{center}
+\caption{\capfont MEM readings}
+\label{tab:Table3}
+\end{table}
 
 
-\begin{center} %\caption {L3CACHE readings}\\
-    \begin{tabular}{| l | l | l | l | l | l | l |}
-    \hline
-	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
-	gre\_1107 & 1.19 & 5.17 & 0.93 & 1.35 & 1.25 & 1.33 \\ \hline
-	cell1 & 4.16 & 20.89 & 2.09 & 3.62 & 4.53 & 4.73\\ \hline
-	appu & 172.91 & 112.16 & 92.21 & 8.92 & 171.13 & 175.07\\ \hline
-	conf6 & 185.58 & 119.82 & 103.45 & 9.98 & 191.85 & 185.86\\ \hline
-	dblp & 244.31 & 148.81 & 124.70 & 13.96 & 241.30 & 235.15\\ \hline
-	amazon & 220.47 & 136.91 & 109.67 & 16.16 & 224.48 & 208.35\\ \hline
-	fem & 2091.23 & 1182.47 & 1119.56 & 87.31 & 2092.19 & 2102.01\\ \hline
-	Chevron4 & 645.25 & 481.38 & 338.31 & 76.22 & 642.99 & 640.16\\ \hline
-	cage14 & 2953.03 & 1626.01 & 1555.99 & 129.44 & 2942.22 & 2973.07\\ \hline
-	cage15 & 11267.14 & 6200.88 & 5936.38 & 499.53 & 11390.66 & 11452.49\\ \hline
-	delaunay & 12762.75 & 7124.39 & 6682.38 & 751.73 & 12893.38 & 12677.84\\ \hline
-    \hline
-    \end{tabular}
-\end{center}
+\begin{table*}[th]
+\small
+\centering
+%\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
 
+\begin{tabular}{ c|c|c|c|c|c|c|c|c| }
+  \cline{2-9}
+  & 
+  \multicolumn{2}{c}{\textbf{$u_{1}$}} &
+  \multicolumn{2}{|c}{\textbf{$u_{2}$}} &
+  \multicolumn{2}{|c}{\textbf{$u_{3}$}} &
+  \multicolumn{2}{|c|}{\textbf{root}}  \\
+  \cline{2-9}
+  \multicolumn{1}{c|}{} &
+  with & without & with & without & with & without & with & without\\
+  \multicolumn{1}{c|}{} &
+  change & changes & changes & changes & changes & changes & changes &
+  changes\\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{create file}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{create dir}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{remove file}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{remove dir}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{create symlink}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{read symlink}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{write symlink}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{create hardlink}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{write hardlink}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{stat}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{change dir}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{read file}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{write file}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{create tar}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{untar}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{make}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+  \multicolumn{1}{|c|}{\textbf{rename}}
+  & Y & Y & N & Y & N & Y & N & Y \\
+  \hline
+\end{tabular}
 
-\begin{center} %\caption {L2CACHE readings}\\
-    \begin{tabular}{| l | l | l | l | l | l | l |}
-    \hline
-	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
-	gre\_1107 & 1.19 & 5.17 & 0.93 & 1.35 & 1.25 & 1.33 \\ \hline
-	cell1 & 4.16 & 20.89 & 2.09 & 3.62 & 4.53 & 4.73\\ \hline
-	appu & 172.91 & 112.16 & 92.21 & 8.92 & 171.13 & 175.07\\ \hline
-	conf6 & 185.58 & 119.82 & 103.45 & 9.98 & 191.85 & 185.86\\ \hline
-	dblp & 244.31 & 148.81 & 124.70 & 13.96 & 241.30 & 235.15\\ \hline
-	amazon & 220.47 & 136.91 & 109.67 & 16.16 & 224.48 & 208.35\\ \hline
-	fem & 2091.23 & 1182.47 & 1119.56 & 87.31 & 2092.19 & 2102.01\\ \hline
-	Chevron4 & 645.25 & 481.38 & 338.31 & 76.22 & 642.99 & 640.16\\ \hline
-	cage14 & 2953.03 & 1626.01 & 1555.99 & 129.44 & 2942.22 & 2973.07\\ \hline
-	cage15 & 11267.14 & 6200.88 & 5936.38 & 499.53 & 11390.66 & 11452.49\\ \hline
-	delaunay & 12762.75 & 7124.39 & 6682.38 & 751.73 & 12893.38 & 12677.84\\ \hline
-    \hline
-    \end{tabular}
-\end{center}
-
+%\end{tabularx}
+\caption{\capfont Results of different file system operations for
+different users, with and without the changes.}
+\label{tab:results}
+\end{table*}
 
 
 
