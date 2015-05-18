@@ -123,12 +123,22 @@ revisiting of the edges which reduces the overall work significantly.
 \item
 \textbf{L2CACHE, L3CACHE performance}
 From Table~\ref{tab:Table6} we can see that Algo4 performs best for
-most of the times.  From Table~\ref{tab:Table6} we can see that Algo1 performs best for
-most of the times.
+most of the times.  This algorithm is observed to be using most of the
+system hardware, this might be affecting its L2CACHE performance.
+From Table~\ref{tab:Table6} we can see that Algo1 performs best for
+most of the times.  A work-stealing technique steals from neighbouring
+threads running on the same socket, this imprves cache efficiency.
+Also its an lock free system, so cache flush in cases of lock
+conflicts are not there.
+
 \item
 \textbf{MEM performance}
 From Table~\ref{tab:Table3} we can see that Algo3 performs the best
-for most of the times.
+for most of the times. This behavior can be attributed to its
+implementation using bag semantics.  There is not much data
+transfer/copy happening here, which is also the reason for its memory
+efficiency.
+
 \item
 \textbf{Energy \& Power Results}
 Table \ref{tab:EnergyAndPowerTable} and Figure 2 \& Figure 3 shows 
