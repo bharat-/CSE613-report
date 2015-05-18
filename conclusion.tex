@@ -11,24 +11,27 @@
 %
 %Key: give reader the "take home" message.
 
-We have introduced a UID based authentication mechanism inside
-eCryptfs.  It is an additional check to prevent unauthorized users
-inside a trusted host environment from accessing the encrypted data,
-even root user is not allowed.  Based on our results we see that this
-mechanism works for all type of users irrespective of their privilege
-level and does not add much overhead in the performance of eCryptfs.
-This policy based access control can be extended to other parameters
-like process id, tty, application.
+We have presented a comprehensive benchmarking study of BFS algorithms
+and reported their performance in terms of ENERGY, MEM and CACHE
+performance.  Our study found that Algo4 [ligra] takes less energy at the
+expense of power.  Algo1 is the most CACHE efficient but it takes more
+energy as the execution time is not optimized.  Algo3 performs best in
+terms MEMORY, which can be attributed to its \emph{hybrid}
+implementation.  We do not observe a clear winner in terms of
+execution time,  Algo1, Algo3, Algo4 perform equally with some
+variations based on input graph dataset.
 
 \paragraph{Future Work}
-We plan to integrate role based access control (RBAC) with flexible
-number of admin and users using the system.  We will extend the access
-policies employing restrictions based on pid, sid, process name, etc.
-To address the problem of non-persistent super block, we plan to add a
-policy file for eCryptfs to make the \emph{ecryptfs\_allowed\_list}
-persistent across reboot/remounts.  As of now Linux kernel keyring
-supports key expiration, but eCryptfs does not.  We plan to add the
-key expiration support to eCryptfs.
+Now that we have analysed BFS algorithms for energy related
+parameters, to widen our understanding we plan to benchmark other
+graph algorithms like \emph{Connected Components} or \emph{Minimum
+Spanning Tree}.
+
+With our understanding of how these parameters behave and their
+dependencies, we plan to extend some existing BFS algorithm to achieve
+energy efficiency.  It is possible that it will not be CACHE or MEMORY
+optimal but it shoud be energy efficient.
+
 
 %Future work text...
 %

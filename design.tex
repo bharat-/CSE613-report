@@ -85,7 +85,6 @@ memory details are as follows:
 	NUMA node0 CPU(s) & 0-7,16-23\\ \hline
 	NUMA node1 CPU(s) & 8-15,24-31\\ \hline
 	MemTotal & 32893524 kB\\ \hline
-    \hline
     \end{tabular}
 \end{center}
 \caption{\capfont CPU and Memory details}
@@ -119,7 +118,6 @@ range of real world input.
 	Cage14 & Large & 1.506M & 25.625M\\ \hline
 	Cage15 & Large & 5.155M & 94.044M\\ \hline
 	Delaunay-n24 & Large & 16.777M & 100.663M\\ \hline
-    \hline
     \end{tabular}
 \end{center}
 \caption{\capfont Graph Dataset details}
@@ -139,7 +137,7 @@ highly efficient BFS algorithms and see if they are energy efficient.
 \begin{itemize}[leftmargin=*]
 \item \textbf{Algorithm1}
 \emph{Avoiding locks and atomic instructions in shared-memory parallel
-BFS using optimistic parallelization} [8]. We used WSLDQ (work
+BFS using optimistic parallelization} ~\cite{WSLDQ-BFS} [8]. We used WSLDQ (work
 stealing, lock free, scale free) implementation suggested in the
 paper.
 \item \textbf{Algorithm2}
