@@ -90,8 +90,8 @@ Table \ref{tab:RuntimeTable} shows the running time for the six algorithms.
 Visual representation for same is shown in \emph{Figure 1}.
 As can be observed, though Algorithm 6 performed better for smaller datasets,
 Algorithm 4 out-passed it and other algorithms in terms of runtime for larger datasets.
-This can be attributed to its high emphasis on time complexity. It also avoids
-revisiting of the edges which reduces the overall work significantly.
+This can be due to the reason that the algorithm tries to exploit maximum parallelism and
+avoids revisiting of the edges which reduces the overall work significantly.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/RunTimeofBenchmarkedAlgorithms.eps}
@@ -121,23 +121,113 @@ revisiting of the edges which reduces the overall work significantly.
 \label{tab:RuntimeTable}
 \end{table*}
 \item
-\textbf{L2CACHE, L3CACHE performance}
-From Table~\ref{tab:Table6} we can see that Algo4 performs best for
-most of the times.  This algorithm is observed to be using most of the
-system hardware, this might be affecting its L2CACHE performance.
-From Table~\ref{tab:Table6} we can see that Algo1 performs best for
-most of the times.  A work-stealing technique steals from neighbouring
-threads running on the same socket, this imprves cache efficiency.
-Also its an lock free system, so cache flush in cases of lock
-conflicts are not there.
+\textbf{L2CACHE, L3CACHE Performance Results}
+\begin{table*}[th]
+\small
+\centering
+%\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
+
+\begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
+%  \cline{2-13}
+\hline
+\multicolumn{1}{|c|}{\textbf{Dataset}} &
+\multicolumn{6}{c}{\textbf{L2CACHE}} &
+  \multicolumn{6}{|c|}{\textbf{L3CACHE}} \\
+  \cline{2-13}
+  \multicolumn{1}{|c|}{} &
+  Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
+    \hline
+  \multicolumn{1}{|c|}{\textbf{Gre}}
+& 4.55 & 4.03 & 4.81 & \cellcolor{blue!25}3.45 & 3.57 & 3.85 & 4.66 & 5.07 & \cellcolor{green!25}4.06 & 7.46 & 5.12 & 4.96 \\ \hline
+  \multicolumn{1}{|c|}{\textbf{Cell1}}
+& 4.69 & 3.73 & \cellcolor{blue!25}3.66 & 4.98 & 4.78 & 4.17 & 6.12 & 4.67 & \cellcolor{green!25}4.02 & 13.97 & 7.66 & 7.67\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Appu}}
+& 3.54 & 5.10 & 3.84 & \cellcolor{blue!25}3.49 & 4.31 & 4.54 & \cellcolor{green!25}4.51 & 4.61 & 7.73 & 10.13 & 5.38 & 5.29\\ \hline
+\multicolumn{1}{|c|}{\textbf{Conf6}}
+& 4.99 & 4.14 & 4.67 & \cellcolor{blue!25}3.81 & 5.07 & 4.49 & \cellcolor{green!25}5.16 & 5.77 & 8.58 & 10.94 & 5.57 & 5.47\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Dblp}}
+& 4.68 & 4.25 & 5.11 & \cellcolor{blue!25}3.92 & 5.03 & 4.65 & \cellcolor{green!25}4.77 & 9.65 & 9.34 & 11.30 & 7.18 & 7.18\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Amazon}}
+& 4.70 & 4.39 & 5.07 & \cellcolor{blue!25}3.35 & 4.98 & 4.54 & \cellcolor{green!25}5.40 & 10.80 & 13.02 & 9.34 & 8.38 & 8.65\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Fem}}
+& 4.83 & 4.15 & 4.62 & \cellcolor{blue!25}3.97 & 4.92 & 4.67 & 5.21 & 9.07 & 9.49 & 10.11 & \cellcolor{green!25}5.15 & 6.84\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Chevron4}}
+& 4.85 & 4.10 & 4.70 & \cellcolor{blue!25}4.09 & 5.04 & 4.50 & 8.62 & \cellcolor{green!25}4.21 & 10.85 & 13.68 & 11.46 & 12.02\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Cage14}}
+& 4.76 & \cellcolor{blue!25}4.03 & 4.97 & 4.03 & 4.92 & 4.59 & \cellcolor{green!25}4.86 & 9.15 & 10.46 & 9.58 & 5.18 & 5.77\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Cage15}}
+& 4.61 & 4.09 & 4.83 & \cellcolor{blue!25}3.84 & 4.56 & 4.75 & \cellcolor{green!25}5.28 & 10.12 & 7.94 & 9.65 & 5.31 & 5.46\\ \hline
+  \multicolumn{1}{|c|}{\textbf{Delaunay}}
+& 4.36 & 4.08 & 4.69 & \cellcolor{blue!25}4.06 & 4.34 & 4.61 & \cellcolor{green!25}5.84 & 16.00 & 7.63 & 6.54 & 7.63 & 8.18\\ \hline
+\end{tabular}
+
+%\end{tabularx}
+\caption{\capfont L2CACHE and L3CACHE miss ratio readings }
+\label{tab:Table6}
+\end{table*}
+From Table~\ref{tab:Table6} we can see that Algorithm 4 performs best for
+most of the times in L2CACHE measure.  This algorithm is observed
+to be makinng best use of the system hardware which might be affecting
+its L2CACHE performance.
+From Table~\ref{tab:Table6} we can see that Algorithm 1's L3CACHE 
+performance is best for most of the times.  A work-stealing 
+technique steals from neighbouring threads running on the same 
+socket which improves cache efficiency. Also the algorithm is lock-free and
+so cache flush in cases of lock conflicts is not present.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforAppu.eps}
+    \caption{Cache-miss ratio for Appu}
+    \label{fig:Appu-Cache Miss}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforDelaunay.eps}
+    \caption{Cache-miss ratio for Delaunay}
+    \label{fig:Delaunay-Cache Miss}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforFem.eps}
+    \caption{Cache-miss ratio for Fem}
+    \label{fig:Fem-Cache Miss}
+\end{figure}
 
 \item
-\textbf{MEM performance}
-From Table~\ref{tab:Table3} we can see that Algo3 performs the best
-for most of the times. This behavior can be attributed to its
-implementation using bag semantics.  There is not much data
-transfer/copy happening here, which is also the reason for its memory
-efficiency.
+\textbf{MEM Performance Results}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/MEM-DataVolumeReadings.eps}
+    \caption{MEM Consumption}
+    \label{fig:MEM Consumption}
+\end{figure}
+From Table~\ref{tab:Table3} we can see that Algorithm 3 performs the best in this measure. 
+This behavior can be attributed to its implementation using bag semantics 
+which involves optimal data transfer/copy.
+\begin{table*}[th]
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
+    \hline
+	Gre & \cellcolor{blue!25}3.46 & 22.03 & 4.25 & 4.2 & 5.4 & 5.64 \\ \hline
+	Cell1 & 10.57 & 99.92 & \cellcolor{blue!25}3.65 & 56.92 & 14.37 & 16.79\\ \hline
+	Appu & 150.85 & 152.95 & \cellcolor{blue!25}121.79 & 445.63 & 123.45 & 130.12\\ \hline
+	Conf6 & 155.97 & 153.01 & \cellcolor{blue!25}133.67 & 473.59 & 145.70 & 145.20\\ \hline
+	Dblp & 333.22 & 282.73 & \cellcolor{blue!25}193.29 & 682.99 & 291.98 & 268.84\\ \hline
+	Amazon & 322.82 & 317.66 & \cellcolor{blue!25}173.32 & 699.97 & 246.82 & 255.30\\ \hline
+	Fem & 1607.10 & 2264.73 & \cellcolor{blue!25}1398.64 & 6774.77 & 1616.92 & 1573.88\\ \hline
+	Chevron & 697.41 & 920.61 & \cellcolor{blue!25}577.01 & 3145.14 & 695.26 & 764.84\\ \hline
+	Cage14 & 2830.57 & 3837.75 & \cellcolor{blue!25}2060.95 & 11183.9 & 2876.8 & 2887.03\\ \hline
+	Cage15 & 10850.6 & 15121.6 & \cellcolor{blue!25}8351.24 & 44794.6 & 11106.5 & 11088.2\\ \hline
+	Delaunay & 14667.8 & 13353.9 & \cellcolor{blue!25}9447.41 & 52910.3 & 13614.7 & 13194.1\\ \hline
+    \end{tabular}
+\end{center}
+\caption{\capfont MEM readings (in MB)}
+\label{tab:Table3}
+\end{table*}
 
 \item
 \textbf{Energy \& Power Results}
@@ -253,74 +343,9 @@ though it may be at times superceded by its runtime.
 %\end{table}
 
 
-\begin{table*}[th]
-\begin{center}
-    \begin{tabular}{| l | l | l | l | l | l | l |}
-    \hline
-	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
-    \hline
-	Gre & \cellcolor{blue!25}3.46 & 22.03 & 4.25 & 4.2 & 5.4 & 5.64 \\ \hline
-	Cell1 & 10.57 & 99.92 & \cellcolor{blue!25}3.65 & 56.92 & 14.37 & 16.79\\ \hline
-	Appu & 150.85 & 152.95 & \cellcolor{blue!25}121.79 & 445.63 & 123.45 & 130.12\\ \hline
-	Conf6 & 155.97 & 153.01 & \cellcolor{blue!25}133.67 & 473.59 & 145.70 & 145.20\\ \hline
-	Dblp & 333.22 & 282.73 & \cellcolor{blue!25}193.29 & 682.99 & 291.98 & 268.84\\ \hline
-	Amazon & 322.82 & 317.66 & \cellcolor{blue!25}173.32 & 699.97 & 246.82 & 255.30\\ \hline
-	Fem & 1607.10 & 2264.73 & \cellcolor{blue!25}1398.64 & 6774.77 & 1616.92 & 1573.88\\ \hline
-	Chevron & 697.41 & 920.61 & \cellcolor{blue!25}577.01 & 3145.14 & 695.26 & 764.84\\ \hline
-	Cage14 & 2830.57 & 3837.75 & \cellcolor{blue!25}2060.95 & 11183.9 & 2876.8 & 2887.03\\ \hline
-	Cage15 & 10850.6 & 15121.6 & \cellcolor{blue!25}8351.24 & 44794.6 & 11106.5 & 11088.2\\ \hline
-	Delaunay & 14667.8 & 13353.9 & \cellcolor{blue!25}9447.41 & 52910.3 & 13614.7 & 13194.1\\ \hline
-    \end{tabular}
-\end{center}
-\caption{\capfont MEM readings (in MB)}
-\label{tab:Table3}
-\end{table*}
 
 
 
-\begin{table*}[th]
-\small
-\centering
-%\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
-
-\begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
-%  \cline{2-13}
-\hline
-\multicolumn{1}{|c|}{\textbf{Dataset}} &
-\multicolumn{6}{c}{\textbf{L2CACHE}} &
-  \multicolumn{6}{|c|}{\textbf{L3CACHE}} \\
-  \cline{2-13}
-  \multicolumn{1}{|c|}{} &
-  Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
-    \hline
-  \multicolumn{1}{|c|}{\textbf{Gre}}
-& 4.55 & 4.03 & 4.81 & \cellcolor{blue!25}3.45 & 3.57 & 3.85 & 4.66 & 5.07 & \cellcolor{green!25}4.06 & 7.46 & 5.12 & 4.96 \\ \hline
-  \multicolumn{1}{|c|}{\textbf{Cell1}}
-& 4.69 & 3.73 & \cellcolor{blue!25}3.66 & 4.98 & 4.78 & 4.17 & 6.12 & 4.67 & \cellcolor{green!25}4.02 & 13.97 & 7.66 & 7.67\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Appu}}
-& 3.54 & 5.10 & 3.84 & \cellcolor{blue!25}3.49 & 4.31 & 4.54 & \cellcolor{green!25}4.51 & 4.61 & 7.73 & 10.13 & 5.38 & 5.29\\ \hline
-\multicolumn{1}{|c|}{\textbf{Conf6}}
-& 4.99 & 4.14 & 4.67 & \cellcolor{blue!25}3.81 & 5.07 & 4.49 & \cellcolor{green!25}5.16 & 5.77 & 8.58 & 10.94 & 5.57 & 5.47\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Dblp}}
-& 4.68 & 4.25 & 5.11 & \cellcolor{blue!25}3.92 & 5.03 & 4.65 & \cellcolor{green!25}4.77 & 9.65 & 9.34 & 11.30 & 7.18 & 7.18\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Amazon}}
-& 4.70 & 4.39 & 5.07 & \cellcolor{blue!25}3.35 & 4.98 & 4.54 & \cellcolor{green!25}5.40 & 10.80 & 13.02 & 9.34 & 8.38 & 8.65\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Fem}}
-& 4.83 & 4.15 & 4.62 & \cellcolor{blue!25}3.97 & 4.92 & 4.67 & 5.21 & 9.07 & 9.49 & 10.11 & \cellcolor{green!25}5.15 & 6.84\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Chevron4}}
-& 4.85 & 4.10 & 4.70 & \cellcolor{blue!25}4.09 & 5.04 & 4.50 & 8.62 & \cellcolor{green!25}4.21 & 10.85 & 13.68 & 11.46 & 12.02\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Cage14}}
-& 4.76 & \cellcolor{blue!25}4.03 & 4.97 & 4.03 & 4.92 & 4.59 & \cellcolor{green!25}4.86 & 9.15 & 10.46 & 9.58 & 5.18 & 5.77\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Cage15}}
-& 4.61 & 4.09 & 4.83 & \cellcolor{blue!25}3.84 & 4.56 & 4.75 & \cellcolor{green!25}5.28 & 10.12 & 7.94 & 9.65 & 5.31 & 5.46\\ \hline
-  \multicolumn{1}{|c|}{\textbf{Delaunay}}
-& 4.36 & 4.08 & 4.69 & \cellcolor{blue!25}4.06 & 4.34 & 4.61 & \cellcolor{green!25}5.84 & 16.00 & 7.63 & 6.54 & 7.63 & 8.18\\ \hline
-\end{tabular}
-
-%\end{tabularx}
-\caption{\capfont L2CACHE and L3CACHE miss ratio readings }
-\label{tab:Table6}
-\end{table*}
 
 %\begin{table}[th]
 %\begin{center}
@@ -346,35 +371,7 @@ though it may be at times superceded by its runtime.
 %\label{tab:Table7}
 %\end{table}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforAppu.eps}
-    \caption{Cache-miss ratio for Appu}
-    \label{fig:Appu-Cache Miss}
-\end{figure}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforDelaunay.eps}
-    \caption{Cache-miss ratio for Delaunay}
-    \label{fig:Delaunay-Cache Miss}
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforFem.eps}
-    \caption{Cache-miss ratio for Fem}
-    \label{fig:Fem-Cache Miss}
-\end{figure}
-
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/MEM-DataVolumeReadings.eps}
-    \caption{MEM Consumption}
-    \label{fig:MEM Consumption}
-\end{figure}
 
 %\input{table-results}
 %\input{table-results-xfs}
