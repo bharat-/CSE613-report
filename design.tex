@@ -154,11 +154,32 @@ C++ implemented, integrated into ligra tool.
 Theoretically Optimized BFS, version 1 by (Jesmin J. Tithi, SBU).
 \item \textbf{Algorithm6}
 Theoretically Optimized BFS, version 2 by (Jesmin J. Tithi, SBU).
+\end{itemize}
 
+\paragraph{Tools used in Benchmarking}
+We used easy to use command line tools provided as a part of likwid
+project. For our benchmarking purposes we used the following:
+\begin{itemize}[leftmargin=*]
+\item \textbf{LikwidPerfCtr}
+It is a simple lightweight command line tool to measure hardware 
+performance counters end to end. The Linux msr module providing 
+an interface to access model specific registers from user space.
+The tool uses the same allows to read out hardware
+performance counters with an unmodified linux kernel. Out of the
+various pre-configured event sets, called performance groups, with
+useful pre-selected event sets and derived metrics, we used the 
+following:
+\begin{itemize}[leftmargin=*]
+\item MEM: The event gives Main Memory's Read, Write \& Total 
+Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
+\item L2CACHE: The event gives L2 cache miss rate/ratio.
+\item L3CACHE: The event primarily gives L3 cache miss rate/ratio.
+\end{itemize}
+\item \textbf{LikwidPowermeter}
 \end{itemize}
 
 
-\paragraph{Experimental readings}
+\paragraph{Experiment readings}
 We have explored different MEM and CPU parameters which can possibly
 affect energy efficienty.  We have run the experiments with different
 combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
