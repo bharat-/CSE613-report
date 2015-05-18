@@ -233,14 +233,15 @@ which involves optimal data transfer/copy.
 \textbf{Energy \& Power Results}
 Table \ref{tab:EnergyAndPowerTable} and Figure 2 \& Figure 3 shows 
 that Algorithm 4 performs remarkably better than others in terms of Energy Efficiency 
-They also show, that power consumption for Algorithm 4 is maximum. The runtime
-experimental results and the Power and Energy readings show that Algorithm 4 tries to perform
-maximum amount of work and exploit maximum parallelism in each time step. This though 
-leads to a higher power consumption, leads to a high overall energy efficiency 
-as the runtime for this algorithm is substantially less than the others.
+They also show, that power consumption for Algorithm 4 is maximum. The runtime, L2 cache 
+and Power  and Energy results show that Algorithm 4 tries to perform
+maximum amount of work, maximize locality and exploit maximum parallelism 
+in each time step. This though leads to a higher power consumption, leads to a 
+high overall energy efficiency.
 As for the second best algorithm in terms of energy efficiency, Algorithm 2,
-optimal Memory utlization seems to have a direct relationship to energy efficiency,
-though it may be at times superceded by its runtime.
+optimal Memory utlization and less data communication overhead  seems to 
+have a direct relationship to energy efficiency, though it may be at 
+times be superceded by the algorithm's runtime.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/PowerConsumption.eps}
