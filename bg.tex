@@ -30,50 +30,53 @@
 %'design' section.
 
 
-Breadth First Search, also knows as BFS, is an algorithm for traversing
-or searching tree or graph data structure. The algorithm finds shortest paths
-from a given source node to all other nodes, in
-terms of the number of edges in the path. It starts at the source node and
-explores the neighbour nodes first before moving to the next level neighbours.
-Its a well known research topic. A variety of parallel BFS algorithms trying to
-improve complexity, parallelism, distributed cache and io performance have been
-proposed till date.\newline
-%Some of these parallel algorithms are \emph{work
-%efficient}, meaning that the total number of operations performed is the same
-%to within a constant factor as that of a comparable serial algorithm.
-A recent paper proposed Hybrid++ BFS algorithm for an accelerated processing
-unit (APU), a heterogeneous processor which fuses the CPU and GPU cores on a
-single die [1]. Hybrid++ leverages the strength of CPUs and GPUs for serial and
-data-parallel execution, respectively, to carefully partition BFS by selecting
-the appropriate execution-core and graph-traversal direction for every search
+Breadth First Search, also knows as BFS, is an algorithm for
+traversing or searching tree or graph data structure. The algorithm
+finds shortest paths from a given source node to all other nodes, in
+terms of the number of edges in the path. It starts at the source node
+and explores the neighbour nodes first before moving to the next level
+neighbours.  Its a well known research topic. A variety of parallel
+BFS algorithms trying to improve complexity, parallelism, distributed
+cache and io performance have been proposed till date.\newline
+%Some of these parallel algorithms are \emph{work efficient}, meaning
+%that the total number of operations performed is the same to within a
+%constant factor as that of a comparable serial algorithm.
+A recent paper proposed Hybrid++ BFS algorithm for an accelerated
+processing unit (APU), a heterogeneous processor which fuses the CPU
+and GPU cores on a single die ~\cite{HYBRIS}. Hybrid++ leverages the
+strength of CPUs and GPUs for serial and data-parallel execution,
+respectively, to carefully partition BFS by selecting the appropriate
+execution-core and graph-traversal direction for every search
 iteration.\newline
-\emph{NUMA-optimized Parallel Breadth-first Search on Multi-core Single-node
-System} [5] proposed a non-uniform memory access (NUMA)-optimized BFS, that
-reduced memory accesses to remote RAM on a NUMA architecture system.\newline
-\emph{Performance evaluation of breadth-first search on Intel Xeon Phi} [7],
-evaluates BFS performance evaluation on a recently released high-performance
-Intel Xeon Phi coprocessor. They examine the previously proposed Queue-based
-and Read-based approaches to BFS implementation. They also apply several
-optimization techniques, such as manual loop unrolling and prefetching, that
-significantly improve performance on Intel Xeon Phi. On a representative graph
-set, Intel Xeon Phi 7120P demonstrates 78\% maximum and 37\% average speedup as
-compared to the Intel Xeon E5-2660 processor.\newline
-Though the research on parallel BFS has been extensive, very few of these focus
-on energy efficieny.\newline
+\emph{NUMA-optimized Parallel Breadth-first Search on Multi-core
+Single-node System} ~\cite{NUMA-BFS} proposed a non-uniform memory
+access (NUMA)-optimized BFS, that reduced memory accesses to remote
+RAM on a NUMA architecture system.\newline \emph{Performance
+evaluation of breadth-first search on Intel Xeon Phi} [7], evaluates
+BFS performance evaluation on a recently released high-performance
+Intel Xeon Phi coprocessor. They examine the previously proposed
+Queue-based and Read-based approaches to BFS implementation. They also
+apply several optimization techniques, such as manual loop unrolling
+and prefetching, that significantly improve performance on Intel Xeon
+Phi. On a representative graph set, Intel Xeon Phi 7120P demonstrates
+78\% maximum and 37\% average speedup as compared to the Intel Xeon
+E5-2660 processor.\newline Though the research on parallel BFS has
+been extensive, very few of these focus on energy efficieny.\newline
 Current cluster implementations suffer from high latency data
 communication with large volumes of transfers across nodes, leading to
-inefficiency in performance and energy consumption. \emph{Large Scale Energy-
-Efficient GraphTraversal: A Path to Efficient Data-Intensive Supercomputing}
-[4] tried to overcome these constraints using a combination of efficient low-
-overhead data compression techniques to reduce transfer volumes along with 
-latency-hiding techniques.\newline
-\emph{Fast and Energy-efficient Breadth-First Search
- on a Single NUMA System} [6] investigated the computational complexity of the bottom-up,
-a major bottleneck in NUMA-optimized BFS.\newline
-Considering the recent trends in application of graph algorithms in big data
-and information analysis, energy efficiency is a major concern. In this project
-we have explored some of the existing parallel BFS algorithms in terms of
-energy efficiency and tried to develop useful insights based on the results.
+inefficiency in performance and energy consumption. \emph{Large Scale
+Energy- Efficient GraphTraversal: A Path to Efficient Data-Intensive
+Supercomputing} [4] tried to overcome these constraints using a
+combination of efficient low- overhead data compression techniques to
+reduce transfer volumes along with latency-hiding techniques.\newline
+\emph{Fast and Energy-efficient Breadth-First Search on a Single NUMA
+System} [6] investigated the computational complexity of the
+bottom-up, a major bottleneck in NUMA-optimized BFS.\newline
+Considering the recent trends in application of graph algorithms in
+big data and information analysis, energy efficiency is a major
+concern. In this project we have explored some of the existing
+parallel BFS algorithms in terms of energy efficiency and tried to
+develop useful insights based on the results.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% For Emacs:
 % Local variables:

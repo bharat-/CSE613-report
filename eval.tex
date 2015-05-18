@@ -60,6 +60,31 @@
 %7.  Optional: if eval section longer than usual, end it with a
 %one-paragraph summary of eval results.
 
+\paragraph{Evaluation Goals}
+We aimed to perform a thorough benchmarking of existing BFS algorithms
+for energy efficiency and analyse the results in terms of MEM, ENERGY,
+POWER and CACHE performance.
+\begin{itemize}
+\item
+\textbf{BFS implementations}\\
+We have collected \emph{six} BFS implementations, verified their
+corectness.
+\item
+\textbf{Dataset}\\
+We have collected \emph{eleven} graph datasets from
+\emph{Florida Sparse Matrix} ~\cite{FLORIDA-SPARSE} database.
+Pre-processed them for algorithm conformity.
+\item
+\textbf{Benchmarking}\\
+We have benchmarked the algorithms by running them on our collected
+graph datasets and measured the readings for our relevant parmeters.
+\end{itemize}
+
+\paragraph{Results}
+We run the experiments and measure the MEM, ENERGY, POWER, L2CACHE and
+L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
+
+
 %\begin{table}[th]
 %\begin{center}
 %    \begin{tabular}{| l | l | l | l | l | l | l |}
@@ -76,7 +101,6 @@
 %	cage14 & 2953.03 & 1626.01 & 1555.99 & 129.44 & 2942.22 & 2973.07\\ \hline
 %	cage15 & 11267.14 & 6200.88 & 5936.38 & 499.53 & 11390.66 & 11452.49\\ \hline
 %	delaunay & 12762.75 & 7124.39 & 6682.38 & 751.73 & 12893.38 & 12677.84\\ \hline
-%    \hline
 %    \end{tabular}
 %\end{center}
 %\caption{\capfont ENERGY readings}
@@ -101,7 +125,6 @@
 %	cage14 & 77.31 & 73.71 & 78.63 & 156.93 & 77.08 & 77.23\\ \hline
 %	cage15 & 77.06 & 74.79 & 77.71 & 176.09 & 77.70 & 77.68\\ \hline
 %	delaunay & 76.83 & 74.16 & 78.93 & 181.46 & 77.45 & 76.89\\ \hline
-%    \hline
 %    \end{tabular}
 %\end{center}
 %\caption{\capfont POWER readings}
@@ -109,7 +132,7 @@
 %\end{table}
 
 
-\begin{table}[th]
+\begin{table*}[th]
 \begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
@@ -125,35 +148,33 @@
 	Cage14 & 2830.57 & 3837.75 & \cellcolor{blue!25}2060.95 & 11183.9 & 2876.8 & 2887.03\\ \hline
 	Cage15 & 10850.6 & 15121.6 & \cellcolor{blue!25}8351.24 & 44794.6 & 11106.5 & 11088.2\\ \hline
 	Delaunay & 14667.8 & 13353.9 & \cellcolor{blue!25}9447.41 & 52910.3 & 13614.7 & 13194.1\\ \hline
-    \hline
     \end{tabular}
 \end{center}
-\caption{\capfont MEM readings in MB}
+\caption{\capfont MEM readings (in MB)}
 \label{tab:Table3}
-\end{table}
+\end{table*}
 
-\begin{table}[th]
+\begin{table*}[th]
 \begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
-	Gre & \cellcolor{blue!25}0.8 & 13.857 & 2.0 & 0.59 & 2.86 & 1.0\\ \hline
-	Cell1 & 3.0 & 57.2 & \cellcolor{blue!25}1.0 & 7.17 & 7.78 & 7.0\\ \hline
-	Appu & 2.0 & 5.34 & 6.0 & \cellcolor{blue!25}0.68 & 1.66 & 2.0\\ \hline
-	Conf6 & 8.0 & 10.41 & 5.0 & \cellcolor{blue!25}4.44 & 12.3 & 12.0\\ \hline
-	Dblp & 7.0 & 25.22 & 8.0 & \cellcolor{blue!25}4.99 & 16.5 & 11.0\\ \hline
-	Amazon & 15.0 & 27.04 & 12.0 & \cellcolor{blue!25}11.5 & 34.3 & 21.0\\ \hline
-	Fem & \cellcolor{blue!25}12.0 & 39.46 & 41.0 & 29.9 & 18.5 & 29.0\\ \hline
-	Chevron & \cellcolor{blue!25}44.0 & 291.27 & 46.0 & 132.0 & 112.56 & 96.0\\ \hline
-	Cage14 & 43.0 & 66.06 & \cellcolor{blue!25}41.0 & 54.4 & 57.65 & 49.0\\ \hline
-	Cage15 & 154.0 & 177.48 & \cellcolor{blue!25}121.0 & 164.0 & 172.15 & 166.0\\ \hline
-	Delaunay & 271.0 & 785.63 & \cellcolor{blue!25}265.0 & 513.0 & 444.17 & 648.0\\ \hline
-    \hline
+	Gre & 11.276 & 89.645 & 9.35 & 14.90 & 14.23 & \cellcolor{blue!25} 2.84\\ \hline
+	Cell1 & 57.456 & 169.51 & 23.15 & 53.67 & 56.20 & \cellcolor{blue!25} 19.36\\ \hline
+	Appu & 2729.78 & 1277.10 & 1230.77 & \cellcolor{blue!25} 127.39 & 2226.78 & 753.26\\ \hline
+	Conf6 & 2456.12 & 1373.91 & 1312.49 & \cellcolor{blue!25} 123.89 & 2471.88 & 795.07\\ \hline
+	Dblp & 2927.43 & 1671.65 & 1485.92 & \cellcolor{blue!25} 170.13 & 3316.42 & 948.97\\ \hline
+	Amazon & 3022.22 & 1478.76 & 1336.50 & \cellcolor{blue!25} 206.07 & 2793.10 & 926.2\\ \hline
+	Fem & 27272.80 & 15298.61 & 14042.00 & \cellcolor{blue!25} 1153.52 & 27702.53 & 9024.60\\ \hline
+	Chevron & 8155.47 & 5139.08 & 4140.09 & \cellcolor{blue!25} 832.14 & 8318.43 & 2675.63\\ \hline
+	Cage14 & 37933.25 & 21091.25 & 19476.28 & \cellcolor{blue!25} 1548.31 & 38384.06 & 12608.33\\ \hline
+	Cage15 & 145707.52 & 81805.62 & 74409.52 & \cellcolor{blue!25} 6254.28 & 145729.76 & 48580.77\\ \hline
+	Delaunay & 165012.42 & 93963.65 & 84164.53 & \cellcolor{blue!25} 8868.07 & 164585.42 & 56794.18\\ \hline
     \end{tabular}
 \end{center}
-\caption{\capfont Running time in ms}
+\caption{\capfont Running time (in ms)}
 \label{tab:Table4}
-\end{table}
+\end{table*}
 
 \begin{table*}[th]
 \small
@@ -161,52 +182,40 @@
 %\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
 
 \begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
-  \cline{2-13}
-&
+\hline
+\multicolumn{1}{|c|}{\textbf{Dataset}} &
 \multicolumn{6}{c}{\textbf{ENERGY}}&
-  \multicolumn{6}{|c}{\textbf{POWER}} \\
+  \multicolumn{6}{|c|}{\textbf{POWER}} \\
   \cline{2-13}
-  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{|c|}{} &
   Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{gre}}
+  \multicolumn{1}{|c|}{\textbf{Gre}}
 & 1.19 & 5.17 & \cellcolor{blue!25}0.93 & 1.35 & 1.25 & 1.33 & 63.82 & 67.15 & \cellcolor{green!25}60.99 & 82.85 & 63.11 & 66.32 \\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cell1}}
+  \multicolumn{1}{|c|}{\textbf{Cell1}}
 & 4.16 & 20.89 & \cellcolor{blue!25}2.09 & 3.62 & 4.53 & 4.73 & 67.53 & 67.51 & \cellcolor{green!25}60.55 & 111.95 & 71.61 & 71.36\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{appu}}
+  \multicolumn{1}{|c|}{\textbf{Appu}}
 & 172.91 & 112.16 & 92.21 & \cellcolor{blue!25}8.92 & 171.13 & 175.07 & 72.37 & \cellcolor{green!25}64.35 & 77.86 & 111.53 & 73.79 & 74.17\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{conf6}}
+  \multicolumn{1}{|c|}{\textbf{Conf6}}
 & 185.58 & 119.82 & 103.45 & \cellcolor{blue!25}9.98 & 191.85 & 185.86 & 74.85 & \cellcolor{green!25}65.35 & 78.20 & 113.69 & 72.82 & 75.78\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{dblp}}
+  \multicolumn{1}{|c|}{\textbf{Dblp}}
 & 244.31 & 148.81 & 124.70 & \cellcolor{blue!25}13.96 & 241.30 & 235.15 & 76.69 & \cellcolor{green!25}67.59 & 80.60 & 117.85 & 76.26 & 73.07\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{amazon}}
+  \multicolumn{1}{|c|}{\textbf{Amazon}}
 & 220.47 & 136.91 & 109.67 & \cellcolor{blue!25}16.16 & 224.48 & 208.35 & 70.46 & \cellcolor{green!25}65.29 & 77.67 & 126.79 & 76.42 & 76.25\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{fem}}
+  \multicolumn{1}{|c|}{\textbf{Fem}}
 & 2091.23 & 1182.47 & 1119.56 & \cellcolor{blue!25}87.31 & 2092.19 & 2102.01 & 77.09 & \cellcolor{green!25}73.49 & 78.85 & 142.76 & 76.03 & 76.07\\ \hline
-  \hline
   \multicolumn{1}{|c|}{\textbf{Chevron4}}
 & 645.25 & 481.38 & 338.31 & \cellcolor{blue!25}76.22 & 642.99 & 640.16 & 77.15 & \cellcolor{green!25}68.78 & 78.10 & 160.25 & 78.93 & 77.72\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cage14}}
+  \multicolumn{1}{|c|}{\textbf{Cage14}}
 & 2953.03 & 1626.01 & 1555.99 & \cellcolor{blue!25}129.44 & 2942.22 & 2973.07 & 77.31 & \cellcolor{green!25}73.71 & 78.63 & 156.93 & 77.08 & 77.23\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cage15}}
+  \multicolumn{1}{|c|}{\textbf{Cage15}}
 & 11267.14 & 6200.88 & 5936.38 & \cellcolor{blue!25}499.53 & 11390.66 & 11452.49 & 77.06 & \cellcolor{green!25}74.79 & 77.71 & 176.09 & 77.70 & 77.68\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{delaunay}}
+  \multicolumn{1}{|c|}{\textbf{Delaunay}}
 & 12762.75 & 7124.39 & 6682.38 & \cellcolor{blue!25}751.73 & 12893.38 & 12677.84 & 76.83 & \cellcolor{green!25}74.16 & 78.93 & 181.46 & 77.45 & 76.89\\ \hline
-  \hline
 \end{tabular}
 
 %\end{tabularx}
-\caption{\capfont ENERGY (in Joules) and POWER (in Watts) readings }
-\label{tab:table1}
+\caption{\capfont ENERGY (in Joules) and POWER (in Watts) }
+\label{tab:Table5}
 \end{table*}
 
 
@@ -216,56 +225,113 @@
 %\begin{tabularx}{\linewidth}{|c|c|c|c|c|c|c|X|}
 
 \begin{tabular}{ c|c|c|c|c|c|c|c|c|c|c|c|c| }
-  \cline{2-13}
-&
+%  \cline{2-13}
+\hline
+\multicolumn{1}{|c|}{\textbf{Dataset}} &
 \multicolumn{6}{c}{\textbf{L2CACHE}} &
-  \multicolumn{6}{|c}{\textbf{L3CACHE}} \\
+  \multicolumn{6}{|c|}{\textbf{L3CACHE}} \\
   \cline{2-13}
-  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{|c|}{} &
   Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{gre}}
+  \multicolumn{1}{|c|}{\textbf{Gre}}
 & 4.55 & 4.03 & 4.81 & \cellcolor{blue!25}3.45 & 3.57 & 3.85 & 4.66 & 5.07 & \cellcolor{green!25}4.06 & 7.46 & 5.12 & 4.96 \\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cell1}}
+  \multicolumn{1}{|c|}{\textbf{Cell1}}
 & 4.69 & 3.73 & \cellcolor{blue!25}3.66 & 4.98 & 4.78 & 4.17 & 6.12 & 4.67 & \cellcolor{green!25}4.02 & 13.97 & 7.66 & 7.67\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{appu}}
+  \multicolumn{1}{|c|}{\textbf{Appu}}
 & 3.54 & 5.10 & 3.84 & \cellcolor{blue!25}3.49 & 4.31 & 4.54 & \cellcolor{green!25}4.51 & 4.61 & 7.73 & 10.13 & 5.38 & 5.29\\ \hline
-  \hline
-\multicolumn{1}{|c|}{\textbf{conf6}}
+\multicolumn{1}{|c|}{\textbf{Conf6}}
 & 4.99 & 4.14 & 4.67 & \cellcolor{blue!25}3.81 & 5.07 & 4.49 & \cellcolor{green!25}5.16 & 5.77 & 8.58 & 10.94 & 5.57 & 5.47\\ \hline
-  \multicolumn{1}{|c|}{\textbf{dblp}}
+  \multicolumn{1}{|c|}{\textbf{Dblp}}
 & 4.68 & 4.25 & 5.11 & \cellcolor{blue!25}3.92 & 5.03 & 4.65 & \cellcolor{green!25}4.77 & 9.65 & 9.34 & 11.30 & 7.18 & 7.18\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{amazon}}
+  \multicolumn{1}{|c|}{\textbf{Amazon}}
 & 4.70 & 4.39 & 5.07 & \cellcolor{blue!25}3.35 & 4.98 & 4.54 & \cellcolor{green!25}5.40 & 10.80 & 13.02 & 9.34 & 8.38 & 8.65\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{fem}}
+  \multicolumn{1}{|c|}{\textbf{Fem}}
 & 4.83 & 4.15 & 4.62 & \cellcolor{blue!25}3.97 & 4.92 & 4.67 & 5.21 & 9.07 & 9.49 & 10.11 & \cellcolor{green!25}5.15 & 6.84\\ \hline
-  \hline
   \multicolumn{1}{|c|}{\textbf{Chevron4}}
 & 4.85 & 4.10 & 4.70 & \cellcolor{blue!25}4.09 & 5.04 & 4.50 & 8.62 & \cellcolor{green!25}4.21 & 10.85 & 13.68 & 11.46 & 12.02\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cage14}}
+  \multicolumn{1}{|c|}{\textbf{Cage14}}
 & 4.76 & \cellcolor{blue!25}4.03 & 4.97 & 4.03 & 4.92 & 4.59 & \cellcolor{green!25}4.86 & 9.15 & 10.46 & 9.58 & 5.18 & 5.77\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{cage15}}
+  \multicolumn{1}{|c|}{\textbf{Cage15}}
 & 4.61 & 4.09 & 4.83 & \cellcolor{blue!25}3.84 & 4.56 & 4.75 & \cellcolor{green!25}5.28 & 10.12 & 7.94 & 9.65 & 5.31 & 5.46\\ \hline
-  \hline
-  \multicolumn{1}{|c|}{\textbf{delaunay}}
+  \multicolumn{1}{|c|}{\textbf{Delaunay}}
 & 4.36 & 4.08 & 4.69 & \cellcolor{blue!25}4.06 & 4.34 & 4.61 & \cellcolor{green!25}5.84 & 16.00 & 7.63 & 6.54 & 7.63 & 8.18\\ \hline
-  \hline
 \end{tabular}
 
 %\end{tabularx}
 \caption{\capfont L2CACHE and L3CACHE miss ratio readings }
-\label{tab:table2}
+\label{tab:Table6}
 \end{table*}
 
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforAppu.eps}
+    \caption{Cache-miss ratio for Appu}
+    \label{fig:Appu-Cache Miss}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforDelaunay.eps}
+    \caption{Cache-miss ratio for Delaunay}
+    \label{fig:Delaunay-Cache Miss}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/CacheMissRatioforFem.eps}
+    \caption{Cache-miss ratio for Fem}
+    \label{fig:Fem-Cache Miss}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/PowerConsumption.eps}
+    \caption{Power Consumption}
+    \label{fig:Power Consumption}
+\end{figure}
 
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/EnergyConsumption.eps}
+    \caption{Energy Consumption}
+    \label{fig:Energy Consumption}
+\end{figure}
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/MEM-DataVolumeReadings.eps}
+    \caption{MEM Consumption}
+    \label{fig:MEM Consumption}
+\end{figure}
+
+\paragraph{MEM performance}
+From Table~\ref{tab:Table3} we can see that Algo3 performs the best
+for most of the times.
+
+\paragraph{L2CACHE performance}
+From Table~\ref{tab:Table6} we can see that Algo4 performs best for
+most of the times.
+
+\paragraph{L3CACHE performance}
+From Table~\ref{tab:Table6} we can see that Algo1 performs best for
+most of the times.
+
+\paragraph{Energy efficiency}
+From Table~\ref{tab:Table5} we can see that Algo4 performs best for
+most of the times. It reduces the work by avoiding an the re-visit of
+already explored nodes, so overall energy consumption is minimal.
+
+\paragraph{POWER efficiency}
+Normally a machine consumes a constant amount of power if operated
+with default parameters. But from Table~\ref{tab:Table5} we can see
+that \emph{Algo4} takes the highest amount of power. This behavior can
+be attributed to its inherent design to exploit max amount of
+parallelism from the hardware.  To verify this we used the same
+CPU and thread parameters for each algorithm, still Algo4 consumes max
+power.
 
 
 
