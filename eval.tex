@@ -138,6 +138,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
+    \hline
 	Gre & \cellcolor{blue!25}3.46 & 22.03 & 4.25 & 4.2 & 5.4 & 5.64 \\ \hline
 	Cell1 & 10.57 & 99.92 & \cellcolor{blue!25}3.65 & 56.92 & 14.37 & 16.79\\ \hline
 	Appu & 150.85 & 152.95 & \cellcolor{blue!25}121.79 & 445.63 & 123.45 & 130.12\\ \hline
@@ -160,6 +161,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
+    \hline
 	Gre & 11.276 & 89.645 & 9.35 & 14.90 & 14.23 & \cellcolor{blue!25} 2.84\\ \hline
 	Cell1 & 57.456 & 169.51 & 23.15 & 53.67 & 56.20 & \cellcolor{blue!25} 19.36\\ \hline
 	Appu & 2729.78 & 1277.10 & 1230.77 & \cellcolor{blue!25} 127.39 & 2226.78 & 753.26\\ \hline
@@ -190,6 +192,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
   \cline{2-13}
   \multicolumn{1}{|c|}{} &
   Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
+    \hline
   \multicolumn{1}{|c|}{\textbf{Gre}}
 & 1.19 & 5.17 & \cellcolor{blue!25}0.93 & 1.35 & 1.25 & 1.33 & 63.82 & 67.15 & \cellcolor{green!25}60.99 & 82.85 & 63.11 & 66.32 \\ \hline
   \multicolumn{1}{|c|}{\textbf{Cell1}}
@@ -234,6 +237,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
   \cline{2-13}
   \multicolumn{1}{|c|}{} &
   Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6 & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\\hline
+    \hline
   \multicolumn{1}{|c|}{\textbf{Gre}}
 & 4.55 & 4.03 & 4.81 & \cellcolor{blue!25}3.45 & 3.57 & 3.85 & 4.66 & 5.07 & \cellcolor{green!25}4.06 & 7.46 & 5.12 & 4.96 \\ \hline
   \multicolumn{1}{|c|}{\textbf{Cell1}}
@@ -263,6 +267,29 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
 \label{tab:Table6}
 \end{table*}
 
+\begin{table*}[th]
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+	Dataset &  Algo6 (-i) & Algo6 (-m)\\ \hline
+    \hline
+	Gre & 1.33 &  \cellcolor{green!25}1.27\\ \hline
+	Cell1 & 4.73 & \cellcolor{green!25}4.64\\ \hline
+	Appu & 175.06 & \cellcolor{green!25}170.83\\ \hline
+	Conf6 & \cellcolor{green!25}185.85 & 192.96 \\ \hline
+	Dblp & \cellcolor{green!25}235.14 & 237.94\\ \hline
+	Amazon & \cellcolor{green!25}208.34 & 222.69\\ \hline
+	Fem & \cellcolor{green!25}2102.01 & 2115.32\\ \hline
+	Chevron & \cellcolor{green!25}640.16 & 646.02\\ \hline
+	Cage14 & 2973.07 & \cellcolor{green!25}2935.45\\ \hline
+	Cage15 & 11452.49 & \cellcolor{green!25}11328.38\\ \hline
+	Delaunay & \cellcolor{green!25}12677.84 & 12878.08\\ \hline
+    \end{tabular}
+\end{center}
+\caption{\capfont Effect of NUMACTL -i vs -m on ENERGY in Algo6,
+Energy (in Joules)}
+\label{tab:Table7}
+\end{table*}
 
 \begin{figure}[t]
     \centering
@@ -306,6 +333,13 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
     \includegraphics[width=0.5\textwidth]{figures/MEM-DataVolumeReadings.eps}
     \caption{MEM Consumption}
     \label{fig:MEM Consumption}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RunTimeofBenchmarkedAlgorithms.eps}
+    \caption{Run Time (in ms)}
+    \label{fig:Run Time}
 \end{figure}
 
 \paragraph{MEM performance}

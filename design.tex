@@ -105,6 +105,7 @@ range of real world input.
     \begin{tabular}{| l | l | l | l |}
     \hline
 	Dataset & Type & N & M\\ \hline
+    \hline
     	gre\_1107 & Small & 1107 & 4557\\ \hline
 	Cell1 & Small & 7055 & 27800\\ \hline
 	Appu & Small & 14000 & 1.839M\\ \hline
@@ -137,22 +138,29 @@ highly efficient BFS algorithms and see if they are energy efficient.
 \begin{itemize}[leftmargin=*]
 \item \textbf{Algorithm1}
 \emph{Avoiding locks and atomic instructions in shared-memory parallel
-BFS using optimistic parallelization} ~\cite{WSLDQ-BFS}.  We used WSLDQ (work
-stealing, lock free, scale free) implementation suggested in the
-paper.
+BFS using optimistic parallelization} ~\cite{WSLDQ-BFS}.  We have used
+WSLDQ (work stealing, lock free, scale free) implementation suggested
+in the paper.  This algorithm uses work stealing in a lock free
+setting to load balance when a thread runs out of jobs.
 \item \textbf{Algorithm2}
 \emph{Efficient Parallel Graph Exploration on Multi-Core CPU and GPU}
-~\cite{STANFORD-BFS}.
+~\cite{STANFORD-BFS}. This algorithm uses a hybrid approach and
+switches between various implementations based on the vertices
+threshold.
 \item \textbf{Algorithm3}
 \emph{A Work-Efficient Parallel Breadth-First Search Algorithm}
-~\cite{MIT-BFS}.
+~\cite{MIT-BFS}.  This uses bag semantics to process the nodes
+belonging to a BFS layers in a parallel way.
 \item \textbf{Algorithm4}
 \emph{Direction-Optimizing Breadth-First Search} ~\cite{LIGRA-BFS}.
-Shared memory C++ implemented, integrated into ligra tool.
+The algorithm starts with a normal top-down BFS approach, but switches to
+bottom-up BFS approach when diameter of graph is maximum.  In this way
+it skipps a lot of unnecessary edges, hence reducing the work.
+We have used a shared memory C++ implemented, integrated into ligra tool.
 \item \textbf{Algorithm5}
-Theoretically Optimized BFS, version 1 by (Jesmin J. Tithi, SBU).
+Theoretically Optimized BFS, \emph{S3BFS} by (Jesmin J. Tithi, SBU).
 \item \textbf{Algorithm6}
-Theoretically Optimized BFS, version 2 by (Jesmin J. Tithi, SBU).
+Theoretically Optimized BFS, \emph{BFS\_MIC2} by (Jesmin J. Tithi, SBU).
 \end{itemize}
 
 \paragraph{Tools used in Benchmarking}
@@ -174,7 +182,12 @@ interface is controlled through MSR registers. likwid-powermeter
 is a small tool which allows you to query the energy consumed within 
 a package for a given time period and computes the resulting power 
 consumption. For LikwidPowermeter reading we used following command:\newline
+<<<<<<< HEAD
 \emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}
+=======
+\emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}\newline
+We took reading for both socket 0 and socket 1.
+>>>>>>> 19493b5a3c3c9ee44a40a988b0e03e03c008b729
 \end{itemize}
 Other than the likwid tools we used \emph{numactl}, a utility which can be 
 used to control NUMA policy for processes or shared memory. \newline
