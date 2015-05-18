@@ -77,14 +77,14 @@ memory details are as follows:
 	Socket(s) & 2\\ \hline
 	NUMA node(s) & 2\\ \hline
 	Stepping & 7\\ \hline
-	CPU MHz & 1200.00\\ \hline
+	CPU MHz & 1200\\ \hline
 	L1d cache & 32K\\ \hline
 	L1i cache & 32K\\ \hline
 	L2 cache & 256K\\ \hline
-	L3 cache & 20480K\\ \hline
+	L3 cache & 20MB\\ \hline
 	NUMA node0 CPU(s) & 0-7,16-23\\ \hline
 	NUMA node1 CPU(s) & 8-15,24-31\\ \hline
-	MemTotal & 32893524 kB\\ \hline
+	MemTotal & 32GB\\ \hline
     \end{tabular}
 \end{center}
 \caption{\capfont CPU and Memory details}
@@ -92,13 +92,13 @@ memory details are as follows:
 \end{table}
 
 \paragraph{Dataset}
-Dataset used in the experiment were collected from Florida
-Sparse Matrix collection in Matrix Market format.  To ensure a
-consistent benchmarking environment, all datasets were verified for
-directed graph having a single strongly connected component.  We also
-have tried to include some data sets used in the papers being benchmarked
-Our datasets vary in size and type to exhaustively cover a wide
-range of real world input.
+Datasets used in the experiment were collected from Florida Sparse
+Matrix collection in Matrix Market format.  To ensure a consistent
+benchmarking environment, all datasets were verified for directed
+graph having a single strongly connected component.  We also have
+tried to include some data sets used in the papers being benchmarked.
+Our datasets vary in size and type to exhaustively cover a wide range
+of real world input.
 
 \begin{table}[th]
 \begin{center} %\caption {Dataset details}\\
@@ -126,10 +126,10 @@ range of real world input.
 \end{table}
 
 \paragraph{Preprocessing}
-We wrote converters for each of the algorithms and converted datasets
-form Matrix Market format to the accepted format for the algorithms.
-To ensure the correctness of each algorithm we verified that all
-vertices are being explored.
+We wrote converters for each of the algorithms and converted the
+datasets form Matrix Market format to accepted format for the
+algorithms.  To ensure the correctness of each algorithm we verified
+that all vertices are being explored.
 
 \paragraph{Algorithms used in Benchmarking}
 After our detailed literature survey we shortlisted \emph{six} BFS
@@ -156,7 +156,7 @@ belonging to a BFS layers in a parallel way.
 The algorithm starts with a normal top-down BFS approach, but switches to
 bottom-up BFS approach when diameter of graph is maximum.  In this way
 it skipps a lot of unnecessary edges, hence reducing the work.
-We have used a shared memory C++ implemented, integrated into ligra tool.
+We have used a shared memory implemented, integrated into ligra tool.
 \item \textbf{Algorithm5}
 Theoretically Optimized BFS, \emph{S3BFS} by (Jesmin J. Tithi, SBU).
 \item \textbf{Algorithm6}
@@ -168,29 +168,26 @@ We used easy to use command line tools provided as a part of likwid
 project. For our benchmarking purposes we used the following:
 \begin{itemize}[leftmargin=*]
 \item \textbf{LikwidPerfCtr}
-It is a simple lightweight command line tool to measure hardware 
-performance counters end to end. The Linux msr module provides
-an interface to access model specific registers from user space.
-The tool uses the same to read out hardware
-performance counters with an unmodified linux kernel. We used the 
-following command:\newline
+It is a simple lightweight command line tool to measure hardware
+performance counters end to end. The Linux msr module provides an
+interface to access model specific registers from user space.  The
+tool uses the same to read out hardware performance counters with an
+unmodified linux kernel. We used the following command:\newline
 \emph{likwid-perfctr -c $<$cores$>$ -g $<$event$>$ -M $<$type-of-access$>$ -O}
 \item \textbf{LikwidPowermeter}
-Intel recently introduced an interface to configure and readout 
-energy consumption of processors and memory. This so called RAPL 
-interface is controlled through MSR registers. likwid-powermeter 
-is a small tool which allows you to query the energy consumed within 
-a package for a given time period and computes the resulting power 
-consumption. For LikwidPowermeter reading we used following command:\newline
+Intel recently introduced an interface to configure and readout energy
+consumption of processors and memory. This so called RAPL interface is
+controlled through MSR registers. likwid-powermeter is a small tool
+which allows you to query the energy consumed within a package for a
+given time period and computes the resulting power consumption. For
+LikwidPowermeter reading we used following command:\newline
 \emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}\newline
 %iiWe took reading for both socket 0 and socket 1.
 \item \textbf{numactl}
-Other than the likwid tools we used \emph{numactl}, a utility which can be 
-used to control NUMA policy for processes or shared memory.
+Other than the likwid tools we used \emph{numactl}, a utility which
+can be used to control NUMA policy for processes or shared memory.
 \emph{numactl $<$option$>$ $<$nodes$>$}
 \end{itemize}
-
-
 
 \begin{table}[th]
 \begin{center}
@@ -211,15 +208,15 @@ used to control NUMA policy for processes or shared memory.
 	Delaunay & \cellcolor{green!25}12677.84 & 12878.08\\ \hline
     \end{tabular}
 \end{center}
-\caption{\capfont Effect of numactl -i vs -m on ENERGY in Algo6,
+\caption{\capfont Effect of numactl -i vs -m on ENERGY in Algorithm6,
 Energy (in Joules)}
 \label{tab:Table7}
 \end{table}
 
 
 \paragraph{Experimental readings}
-In likwid-perfctr readings, out of the various pre-configured event sets, we 
-used the following:
+In likwid-perfctr readings, out of the various pre-configured event
+sets, we used the following:
 \begin{itemize}[leftmargin=*]
 \item MEM: The event gives Main Memory's Read, Write \& Total 
 Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
@@ -231,12 +228,12 @@ likwid-powermeter, we took readings of socket 0 \& 1.\newline
 %We took the aggregated reading on all available cores of both Socket 0 \& 1.
 We compared numactl with -i and -m option, and observed that in
 general both of them had same performance in terms of energy as shown
-in Table\ref{tab:Table7}, but -i gives better cache performance, hence we
-used -i in our experiment.  
-We have used CILKNWORKERS=16 in our experiments fixing the total thread count to 16.
+in Table\ref{tab:Table7}, but -i gives better cache performance, hence
+we used -i in our experiment.  We have used CILKNWORKERS=16 in our
+experiments fixing the total thread count to 16.
 
-To remove anamolies from experimental readings, we ran the experiment 7
-times, removed the best and worst readings and then reported the
+To remove anamolies from experimental readings, we ran the experiment
+7 times, removed the best and worst readings and then reported the
 average of the remaining 5 readings.
 
 %File Access Policy: Explain?
