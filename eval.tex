@@ -71,8 +71,9 @@ We have collected \emph{six} BFS implementations, verified their
 corectness.
 \item
 \textbf{Dataset}\\
-We have collected \emph{eleven} graph datasets from \emph{Florida
-Sparse Matrix} database.  Pre-processed them for algorithm conformity.
+We have collected \emph{eleven} graph datasets from
+\emph{Florida Sparse Matrix} ~\cite{FLORIDA-SPARSE} database.
+Pre-processed them for algorithm conformity.
 \item
 \textbf{Benchmarking}\\
 We have benchmarked the algorithms by running them on our collected
@@ -149,7 +150,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
 	Delaunay & 14667.8 & 13353.9 & \cellcolor{blue!25}9447.41 & 52910.3 & 13614.7 & 13194.1\\ \hline
     \end{tabular}
 \end{center}
-\caption{\capfont MEM readings in MB}
+\caption{\capfont MEM readings (in MB)}
 \label{tab:Table3}
 \end{table*}
 
@@ -158,20 +159,20 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
 	Dataset & Algo1 & Algo2 & Algo3 & Algo4 & Algo5 & Algo6\\ \hline
-	Gre & \cellcolor{blue!25}0.8 & 13.857 & 2.0 & 0.59 & 2.86 & 1.0\\ \hline
-	Cell1 & 3.0 & 57.2 & \cellcolor{blue!25}1.0 & 7.17 & 7.78 & 7.0\\ \hline
-	Appu & 2.0 & 5.34 & 6.0 & \cellcolor{blue!25}0.68 & 1.66 & 2.0\\ \hline
-	Conf6 & 8.0 & 10.41 & 5.0 & \cellcolor{blue!25}4.44 & 12.3 & 12.0\\ \hline
-	Dblp & 7.0 & 25.22 & 8.0 & \cellcolor{blue!25}4.99 & 16.5 & 11.0\\ \hline
-	Amazon & 15.0 & 27.04 & 12.0 & \cellcolor{blue!25}11.5 & 34.3 & 21.0\\ \hline
-	Fem & \cellcolor{blue!25}12.0 & 39.46 & 41.0 & 29.9 & 18.5 & 29.0\\ \hline
-	Chevron & \cellcolor{blue!25}44.0 & 291.27 & 46.0 & 132.0 & 112.56 & 96.0\\ \hline
-	Cage14 & 43.0 & 66.06 & \cellcolor{blue!25}41.0 & 54.4 & 57.65 & 49.0\\ \hline
-	Cage15 & 154.0 & 177.48 & \cellcolor{blue!25}121.0 & 164.0 & 172.15 & 166.0\\ \hline
-	Delaunay & 271.0 & 785.63 & \cellcolor{blue!25}265.0 & 513.0 & 444.17 & 648.0\\ \hline
+	Gre & 11.276 & 89.645 & 9.35 & 14.90 & 14.23 & \cellcolor{blue!25} 2.84\\ \hline
+	Cell1 & 57.456 & 169.51 & 23.15 & 53.67 & 56.20 & \cellcolor{blue!25} 19.36\\ \hline
+	Appu & 2729.78 & 1277.10 & 1230.77 & \cellcolor{blue!25} 127.39 & 2226.78 & 753.26\\ \hline
+	Conf6 & 2456.12 & 1373.91 & 1312.49 & \cellcolor{blue!25} 123.89 & 2471.88 & 795.07\\ \hline
+	Dblp & 2927.43 & 1671.65 & 1485.92 & \cellcolor{blue!25} 170.13 & 3316.42 & 948.97\\ \hline
+	Amazon & 3022.22 & 1478.76 & 1336.50 & \cellcolor{blue!25} 206.07 & 2793.10 & 926.2\\ \hline
+	Fem & 27272.80 & 15298.61 & 14042.00 & \cellcolor{blue!25} 1153.52 & 27702.53 & 9024.60\\ \hline
+	Chevron & 8155.47 & 5139.08 & 4140.09 & \cellcolor{blue!25} 832.14 & 8318.43 & 2675.63\\ \hline
+	Cage14 & 37933.25 & 21091.25 & 19476.28 & \cellcolor{blue!25} 1548.31 & 38384.06 & 12608.33\\ \hline
+	Cage15 & 145707.52 & 81805.62 & 74409.52 & \cellcolor{blue!25} 6254.28 & 145729.76 & 48580.77\\ \hline
+	Delaunay & 165012.42 & 93963.65 & 84164.53 & \cellcolor{blue!25} 8868.07 & 164585.42 & 56794.18\\ \hline
     \end{tabular}
 \end{center}
-\caption{\capfont Running time in ms}
+\caption{\capfont Running time (in ms)}
 \label{tab:Table4}
 \end{table*}
 
@@ -213,7 +214,7 @@ L3CACHE miss using \emph{likwid-perfctr} and \emph{likwid-pwermeter}.
 \end{tabular}
 
 %\end{tabularx}
-\caption{\capfont ENERGY (in Joules) and POWER (in Watts) readings }
+\caption{\capfont ENERGY (in Joules) and POWER (in Watts) }
 \label{tab:Table5}
 \end{table*}
 

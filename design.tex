@@ -137,17 +137,18 @@ highly efficient BFS algorithms and see if they are energy efficient.
 \begin{itemize}[leftmargin=*]
 \item \textbf{Algorithm1}
 \emph{Avoiding locks and atomic instructions in shared-memory parallel
-BFS using optimistic parallelization} ~\cite{WSLDQ-BFS} [8]. We used WSLDQ (work
+BFS using optimistic parallelization} ~\cite{WSLDQ-BFS}.  We used WSLDQ (work
 stealing, lock free, scale free) implementation suggested in the
 paper.
 \item \textbf{Algorithm2}
 \emph{Efficient Parallel Graph Exploration on Multi-Core CPU and GPU}
-[9].
+~\cite{STANFORD-BFS}.
 \item \textbf{Algorithm3}
-\emph{A Work-Efficient Parallel Breadth-First Search Algorithm} [10].
+\emph{A Work-Efficient Parallel Breadth-First Search Algorithm}
+~\cite{MIT-BFS}.
 \item \textbf{Algorithm4}
-\emph{Direction-Optimizing Breadth-First Search} [11]. Shared memory
-C++ implemented, integrated into ligra tool.
+\emph{Direction-Optimizing Breadth-First Search} ~\cite{LIGRA-BFS}.
+Shared memory C++ implemented, integrated into ligra tool.
 \item \textbf{Algorithm5}
 Theoretically Optimized BFS, version 1 by (Jesmin J. Tithi, SBU).
 \item \textbf{Algorithm6}
@@ -160,10 +161,10 @@ Theoretically Optimized BFS, version 2 by (Jesmin J. Tithi, SBU).
 We have explored different MEM and CPU parameters which can possibly
 affect energy efficienty.  We have run the experiments with different
 combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
-\emph{numactl} memory and cpu interleaving [12].
+\emph{numactl} memory and cpu interleaving ~\cite{NUMA-MAN}.
 
 To remove anamolies from experiment readings, we ran the experiment 7
-times, removed the best and worst readings and then reported the 
+times, removed the best and worst readings and then reported the
 average of the remaining 5 readings.
 
 
