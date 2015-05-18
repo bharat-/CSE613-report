@@ -135,12 +135,12 @@ Table \ref{tab:EnergyAndPowerTable} and Figure 2 \& Figure 3 shows
 that Algorithm 4 performs remarkably better than others in terms of Energy Efficiency 
 They also show, that power consumption for Algorithm 4 is maximum. The runtime
 experimental results and the Power and Energy readings show that Algorithm 4 tries to perform
-maximum amount of work in each time step. This though leads to a higher power consumption,
-leads to a high overall energy efficiency as the runtime for this algorithm is 
-substantially less than the others.
+maximum amount of work and exploit maximum parallelism in each time step. This though 
+leads to a higher power consumption, leads to a high overall energy efficiency 
+as the runtime for this algorithm is substantially less than the others.
 As for the second best algorithm in terms of energy efficiency, Algorithm 2,
 optimal Memory utlization seems to have a direct relationship to energy efficiency,
-though it may be at times superceded by its Runtime.
+though it may be at times superceded by its runtime.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/PowerConsumption.eps}
@@ -365,25 +365,6 @@ though it may be at times superceded by its Runtime.
     \caption{MEM Consumption}
     \label{fig:MEM Consumption}
 \end{figure}
-
-
-
-\paragraph{Energy efficiency}
-From Table~\ref{tab:EnergyAndPowerTable} we can see that Algo4 performs best for
-most of the times. It reduces the work by avoiding an the re-visit of
-already explored nodes, so overall energy consumption is minimal.
-
-\paragraph{POWER efficiency}
-Normally a machine consumes a constant amount of power if operated
-with default parameters. But from Table~\ref{tab:EnergyAndPowerTable} we can see
-that \emph{Algo4} takes the highest amount of power. This behavior can
-be attributed to its inherent design to exploit max amount of
-parallelism from the hardware.  To verify this we used the same
-CPU and thread parameters for each algorithm, still Algo4 consumes max
-power.
-
-
-
 
 %\input{table-results}
 %\input{table-results-xfs}
