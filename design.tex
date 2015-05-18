@@ -183,7 +183,7 @@ is a small tool which allows you to query the energy consumed within
 a package for a given time period and computes the resulting power 
 consumption. For LikwidPowermeter reading we used following command:\newline
 \emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}\newline
-%We took reading for both socket 0 and socket 1.
+%iiWe took reading for both socket 0 and socket 1.
 \item \textbf{numactl}
 Other than the likwid tools we used \emph{numactl}, a utility which can be 
 used to control NUMA policy for processes or shared memory.
@@ -227,18 +227,17 @@ Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
 \item L3CACHE: The event primarily gives L3 cache miss rate/ratio.
 \end{itemize}
 For likwid-perfctr we took the readings on core 0 to 15, and for
-likwid-powermeter, we took readings of socket 0 \& 1.\newline We took
-the aggregated reading on all available cores of both Socket 0 \& 1.
+likwid-powermeter, we took readings of socket 0 \& 1.\newline 
+%We took the aggregated reading on all available cores of both Socket 0 \& 1.
 We compared numactl with -i and -m option, and observed that in
 general both of them had same performance in terms of energy as shown
 in Table\ref{tab:Table7}, but -i gives better cache performance, hence we
-used -i in our experiment.  We have used CILKNWORKERS=16
-\emph{numactl} memory and cpu interleaving ~\cite{NUMA-MAN}.
+used -i in our experiment.  
+We have used CILKNWORKERS=16 in our experiments fixing the total thread count to 16.
 
 To remove anamolies from experimental readings, we ran the experiment 7
 times, removed the best and worst readings and then reported the
 average of the remaining 5 readings.
-
 
 %File Access Policy: Explain?
 
