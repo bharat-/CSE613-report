@@ -182,16 +182,13 @@ interface is controlled through MSR registers. likwid-powermeter
 is a small tool which allows you to query the energy consumed within 
 a package for a given time period and computes the resulting power 
 consumption. For LikwidPowermeter reading we used following command:\newline
-<<<<<<< HEAD
-\emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}
-=======
 \emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}\newline
-We took reading for both socket 0 and socket 1.
->>>>>>> 19493b5a3c3c9ee44a40a988b0e03e03c008b729
-\end{itemize}
+%We took reading for both socket 0 and socket 1.
+\item \textbf{numactl}
 Other than the likwid tools we used \emph{numactl}, a utility which can be 
-used to control NUMA policy for processes or shared memory. \newline
+used to control NUMA policy for processes or shared memory.
 \emph{numactl $<$option$>$ $<$nodes$>$}
+\end{itemize}
 
 \paragraph{Experimental readings}
 In likwid-perfctr readings, out of the various pre-configured event sets, we 
@@ -202,10 +199,13 @@ Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
 \item L2CACHE: The event gives L2 cache miss rate/ratio.
 \item L3CACHE: The event primarily gives L3 cache miss rate/ratio.
 \end{itemize}
-We captured readings on core 0 to 15.\newline
-For likwid-powermeter, we took readings of Socket 0 \& 1.\newline
-We have run the experiments with different
-combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
+%We captured readings on core 0 to 15.\newline
+%For likwid-powermeter, we took readings of Socket 0 \& 1.\newline
+We took the aggregated reading on all available cores of both Socket 0
+\& 1.  We compared numactl with -i and -m option, and observed that in
+general both of them had same performance in terms of energy, but -i
+gives better cache performance, hence we used -i in our experiment.
+We have used CILKNWORKERS=16
 \emph{numactl} memory and cpu interleaving ~\cite{NUMA-MAN}.
 
 To remove anamolies from experimental readings, we ran the experiment 7
