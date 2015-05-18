@@ -166,17 +166,7 @@ an interface to access model specific registers from user space.
 The tool uses the same to read out hardware
 performance counters with an unmodified linux kernel. We used the 
 following command:\newline
-\emph{likwid-perfctr -c $<$cores$>$ -g $<$event$>$ -M $<$type-of-access$>$ -O}\newline
-Out of the various pre-configured event sets, called performance groups, with
-useful pre-selected event sets and derived metrics, we used the 
-following:
-\begin{itemize}[leftmargin=*]
-\item MEM: The event gives Main Memory's Read, Write \& Total 
-Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
-\item L2CACHE: The event gives L2 cache miss rate/ratio.
-\item L3CACHE: The event primarily gives L3 cache miss rate/ratio.
-\end{itemize}
-We captured readings on core 0 to 15.
+\emph{likwid-perfctr -c $<$cores$>$ -g $<$event$>$ -M $<$type-of-access$>$ -O}
 \item \textbf{LikwidPowermeter}
 Intel recently introduced an interface to configure and readout 
 energy consumption of processors and memory. This so called RAPL 
@@ -184,18 +174,28 @@ interface is controlled through MSR registers. likwid-powermeter
 is a small tool which allows you to query the energy consumed within 
 a package for a given time period and computes the resulting power 
 consumption. For LikwidPowermeter reading we used following command:\newline
-\emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}\newline
-We took readng for both socket 0 and socket 1.
+\emph{likwid-powermeter -c $<$socket$>$ -M $<$type-of-access$>$}
 \end{itemize}
+Other than the likwid tools we used \emph{numactl}, a utility which can be 
+used to control NUMA policy for processes or shared memory. \newline
+\emph{numactl $<$option$>$ $<$nodes$>$}
 
-
-\paragraph{Experiment readings}
-We have explored different MEM and CPU parameters which can possibly
-affect energy efficienty.  We have run the experiments with different
+\paragraph{Experimental readings}
+In likwid-perfctr readings, out of the various pre-configured event sets, we 
+used the following:
+\begin{itemize}[leftmargin=*]
+\item MEM: The event gives Main Memory's Read, Write \& Total 
+Bandwidth in MBytes/sec. It also gives the Datavolume in GBytes.
+\item L2CACHE: The event gives L2 cache miss rate/ratio.
+\item L3CACHE: The event primarily gives L3 cache miss rate/ratio.
+\end{itemize}
+We captured readings on core 0 to 15.\newline
+For likwid-powermeter, we took readings of Socket 0 \& 1.\newline
+We have run the experiments with different
 combination of CILK and NUMA parameters like \emph{CILK\_NWORKERS},
 \emph{numactl} memory and cpu interleaving ~\cite{NUMA-MAN}.
 
-To remove anamolies from experiment readings, we ran the experiment 7
+To remove anamolies from experimental readings, we ran the experiment 7
 times, removed the best and worst readings and then reported the
 average of the remaining 5 readings.
 
