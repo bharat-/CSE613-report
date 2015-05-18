@@ -13,13 +13,15 @@
 
 We have presented a comprehensive benchmarking study of BFS algorithms
 and reported their performance in terms of ENERGY, MEM and CACHE
-performance.  Our study found that Algo4 ~\cite{LIGRA-BFS} takes less
-energy at the expense of power.  Algo1 is the most CACHE efficient but
-it takes more energy as the execution time is not optimized.  Algo3
-performs best in terms MEMORY, which can be attributed to its
-\emph{hybrid} implementation.  We do observe a clear winner in terms
-of execution time,  Algo4 is the most run-time efficient which also
-makes it energy efficient.
+performance.  Our study found that Algo4 ~\cite{LIGRA-BFS} is the most
+energy efficient.  Algo1 is L3CACHE efficient, Algo4 is L2CACHE
+efficient and Algo3 is MEMORY efficient.  Thus we can clearly observe
+that no algorithm performs best for all the parameters, they optimize
+one parameter at the expense of another.
+
+%which can be attributed to its \emph{hybrid} implementation.  We do
+%observe a clear winner in terms of execution time,  Algo4 is the most
+%run-time efficient which also makes it energy efficient.
 
 \paragraph{Future Work}
 Now that we have analysed BFS algorithms for energy related
@@ -27,10 +29,10 @@ parameters, to widen our understanding we plan to benchmark other
 graph algorithms like \emph{Connected Components} or \emph{Minimum
 Spanning Tree}.
 
-With our understanding of how these parameters behave and their
-dependencies, we plan to extend some existing BFS algorithm to achieve
-energy efficiency.  It is possible that it will not be CACHE or MEMORY
-optimal but it shoud be energy efficient.
+With our understanding of how these parameters behave and their affect
+on performance, In future we plan to extend some existing BFS
+algorithm to achieve energy efficiency.  It is possible that it will
+not be CACHE or MEMORY optimal but it should be energy efficient.
 
 
 %Future work text...
